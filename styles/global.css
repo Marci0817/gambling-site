@@ -1,0 +1,46 @@
+/* Global variables */
+:root{
+    /* General variables */
+    --textColor: #000;
+    --primary: #21581D;
+    --secondary: #2F7F2A;
+    --accent: #73CA68;
+    --background: #fff;
+
+    /* Pre-created components */
+    --btnColor: #00bbff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--textColor);
+}
+
+
+/* Components */
+.btn{
+    background-color: var(--btnColor);
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 0.7rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: 0.95;
+}
+
+input{
+    padding: 0.5rem 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0;
+}
