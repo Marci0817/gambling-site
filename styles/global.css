@@ -48,21 +48,21 @@ input{
 @font-face {
     font-family: "Loyal";
     src: url('/assets/fonts/LoyalRegularv1.otf');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Loyal";
     src: url('/assets/fonts/LoyalBoldv1.otf');
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Loyal";
     src: url('/assets/fonts/LoyalLightv1.otf');
-    font-weight: lighter;
+    font-weight: 300;
     font-style: normal;
 }
 
