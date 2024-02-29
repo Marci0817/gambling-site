@@ -38,6 +38,12 @@ body {
     opacity: 0.95;
 }
 
+.reset-btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 input{
     padding: 0.5rem 0.7rem;
     border: 1px solid #ccc;
