@@ -44,3 +44,33 @@ input{
     border-radius: 0.3rem;
     margin: 0.5rem 0;
 }
+
+@font-face {
+    font-family: "Loyal";
+    src: url('/assets/fonts/LoyalRegularv1.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Loyal";
+    src: url('/assets/fonts/LoyalBoldv1.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Loyal";
+    src: url('/assets/fonts/LoyalLightv1.otf');
+    font-weight: light;
+    font-style: normal;
+}
+
+
+.font-display {
+    font-family: "Loyal", sans-serif;
+}
+
+.hidden {
+    display: none;
+}
