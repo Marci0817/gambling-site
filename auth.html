@@ -16,7 +16,7 @@
         <script src="scripts/auth.js" defer></script>
     </head>
     <body>
-        <div class="font-display">
+        <div class="">
             <form id="loginForm" action="" method="">
                 <h1>Login</h1>
                 <input
@@ -34,9 +34,13 @@
                     autocomplete="current-password"
                 />
                 <button class="btn" type="submit" name="login">Login</button>
-                <p>
-                    Dont you have an account?
-                    <button type="button" onclick="selectForm('register')">
+                <p class="note">
+                    Are you not registered yet?
+                    <button
+                        type="button"
+                        class="reset-btn"
+                        onclick="selectForm('register')"
+                    >
                         Register
                     </button>
                 </p>
@@ -68,9 +72,13 @@
                 <button class="btn" type="submit" name="register">
                     Register
                 </button>
-                <p>
+                <p class="note">
                     Do you have an account?
-                    <button type="button" onclick="selectForm('login')">
+                    <button
+                        type="button"
+                        class="reset-btn"
+                        onclick="selectForm('login')"
+                    >
                         Login
                     </button>
                 </p>
