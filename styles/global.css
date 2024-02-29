@@ -45,6 +45,10 @@ input{
     margin: 0.5rem 0;
 }
 
+input:focus{
+    outline: none;
+}
+
 @font-face {
     font-family: "Loyal";
     src: url('/assets/fonts/LoyalRegularv1.otf');
