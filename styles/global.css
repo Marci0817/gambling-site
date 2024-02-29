@@ -62,7 +62,7 @@ input{
 @font-face {
     font-family: "Loyal";
     src: url('/assets/fonts/LoyalLightv1.otf');
-    font-weight: light;
+    font-weight: lighter;
     font-style: normal;
 }
 
