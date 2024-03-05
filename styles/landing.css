@@ -1,0 +1,34 @@
+#tagline {
+    background-color: #f52222;
+    padding-left: 8rem;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: lighter;
+}
+
+h2 {
+    font-size: 2.5rem;
+    letter-spacing: 0.075rem;
+    font-weight: lighter;
+}
+
+p {
+    font-weight: lighter;
+    font-size: 4rem;
+    max-width: 70ch;
+}
+
+.section {
+    background: radial-gradient(circle, #111 40%, #151515 100%);
+    padding: 8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
