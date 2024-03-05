@@ -2,12 +2,12 @@ form {
     display: flex;
     flex-direction: column;
     padding: 2.5rem 3rem;
-    background-color: rgb(40, 0, 0);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
+    border: 1px solid var(--primary);
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-top: 20%;
-    color: var(--accent)
-
+    color: var(--accent);
+    border-radius: 5px;
 }
 
 div {
@@ -29,12 +29,14 @@ h1 {
 
 .btn {
     padding: 0.5rem 1rem;
+    margin-top: 1rem;
     background-color: var(--primary);
 }
 
 input{
     background-color: transparent;
-    border: 1px solid var(--primary);
+    border: none;
+    border-bottom: 1px solid var(--accent);
     color: white;
 }
 
