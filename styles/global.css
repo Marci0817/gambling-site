@@ -1,12 +1,12 @@
 /* Global variables */
-:root{
+:root {
     /* General variables */
     --background: #111;
     --primary: #f52222;
     --accent: #fff;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,7 +19,7 @@ body {
 
 
 /* Components */
-.btn{
+.btn {
     display: block;
     text-decoration: none;
     background-color: var(--accent);
@@ -30,23 +30,23 @@ body {
     cursor: pointer;
 }
 
-.btn:hover{
+.btn:hover {
     opacity: 0.95;
 }
 
-.reset-btn{
+.reset-btn {
     border: none;
     background-color: transparent;
     cursor: pointer;
 }
 
-input{
+input {
     padding: 0.5rem 0.7rem;
     border: 1px solid #ccc;
     margin: 0.5rem 0;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
 
