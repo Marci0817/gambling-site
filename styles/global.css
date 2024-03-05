@@ -1,14 +1,9 @@
 /* Global variables */
 :root{
     /* General variables */
-    --textColor: #000;
-    --primary: #21581D;
-    --secondary: #2F7F2A;
-    --accent: #73CA68;
-    --background: #fff;
-
-    /* Pre-created components */
-    --btnColor: #00bbff;
+    --background: #111;
+    --primary: #f52222;
+    --accent: #fff;
 }
 
 *{
@@ -19,14 +14,14 @@
 
 body {
     background-color: var(--background);
-    color: var(--textColor);
+    color: var(--accent);
 }
 
 
 /* Components */
 .btn{
-    background-color: var(--btnColor);
-    color: white;
+    background-color: var(--accent);
+    color: #000;
     font-weight: 600;
     padding: 0.5rem 0.7rem;
     border: none;
