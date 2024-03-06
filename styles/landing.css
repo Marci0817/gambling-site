@@ -2,12 +2,18 @@
     z-index: 1000;
     position: fixed;
     width: 100%;
+    padding: 2rem 4rem;
+    transition: padding 0.3s, background-color 0.3s;
+}
+
+#navbar.collapsed {
+    background-color: var(--background);
+    padding: 1.5rem 4rem;
 }
 
 #nav-content {
     display: flex;
     place-content: space-between;
-    padding: 1.5rem 4rem;
     max-width: 1600px;
     margin: 0 auto;
 }
