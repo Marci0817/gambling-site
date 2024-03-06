@@ -17,10 +17,18 @@
     <body>
         <label for="soundOnOff">Sounds on</label>
         <input type="checkbox" name="soundOnOff" id="soundOnOff" checked />
-        <div id="startingHud">
-            <button class="startButton" onclick="startNewGame()">
-                Start to play
-            </button>
+        <div id="playerInteractionHud">
+            <div id="startButton">
+                <button class="startButton" onclick="startNewGame()">
+                    Start to play
+                </button>
+            </div>
+            <div id="playerInteractions" class="hidden">
+                <button onclick="playerAction('hit')">Hit</button>
+                <button onclick="playerAction('stand')">Stand</button>
+                <button onclick="playerAction('double')">Double</button>
+                <button onclick="playerAction('split')">Split</button>
+            </div>
         </div>
         <div>
             <div id="dealerBoard">
