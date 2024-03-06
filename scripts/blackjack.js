@@ -47,39 +47,12 @@ function playerAction(action) {
 async function addPlayerCard(cards) {
     let playerCardBoard = document.getElementById("playerCardBoard");
 
-    let defaultCards = playerCardBoard.children;
-
-    for (let i = 0; i < cards.length; i++) {
-        let isFirstCards = false;
-        //First two cards reveal
-        if (
-            defaultCards[i].attributes.src.nodeValue ===
-            "assets/cards/cardback.webp"
-        ) {
-            defaultCards[i].attributes.src.nodeValue = cards[i];
-            isFirstCards = true;
-        }
-
-        if (!isFirstCards) {
-            let newPlayerCard = document.getElementById("playerCardBoard");
-            let newCard = document.createElement("img");
-            newCard.src = cards[i];
-            newPlayerCard.appendChild(newCard);
-        }
-        newCardSound();
-        await sleep(DELAY_BETWEEN_CARDS);
-    }
+    revealCard("player", playerCardBoard, cards);
 }
 
 function revealDealerCard() {
     let dealerCardBoard = document.getElementById("dealerCardBoard");
-    let defaultDealerCards = dealerCardBoard.children;
-
-    //Reveal the first dealer card
-    for (let i = 0; i < 1; i++) {
-        defaultDealerCards[i].attributes.src.nodeValue = generateRandomCard();
-        newCardSound();
-    }
+    revealCard("dealer", dealerCardBoard, [generateRandomCard()]);
 }
 
 // Helper functions
@@ -105,6 +78,38 @@ async function sleep(interval) {
     return new Promise((resolve) => {
         setTimeout(resolve, interval);
     });
+}
+
+/**
+ * Reveals the cards in the specified player's hand.
+ * @param {string} which - player or dealer to reveal the card
+ * @param {HTMLElement} whichPlayerCard - The container element for the player/dealer's cards.
+ * @param {string[]} cards - An array of card image URLs.
+ * @returns {Promise<void>} - A promise that resolves when all cards are revealed.
+ */
+async function revealCard(which, whichPlayerCard, cards) {
+    let cardsDom = whichPlayerCard.children;
+
+    for (let i = 0; i < cards.length; i++) {
+        let isFirstCard = false;
+        //First two cards reveal
+        if (
+            cardsDom[i].attributes.src.nodeValue ===
+            "assets/cards/cardback.webp"
+        ) {
+            cardsDom[i].attributes.src.nodeValue = cards[i];
+            isFirstCard = true;
+        }
+
+        if (!isFirstCard) {
+            let newPlayerCard = document.getElementById(which + "CardBoard");
+            let newCard = document.createElement("img");
+            newCard.src = cards[i];
+            newPlayerCard.appendChild(newCard);
+        }
+        newCardSound();
+        await sleep(DELAY_BETWEEN_CARDS);
+    }
 }
 
 //Add credit to player
