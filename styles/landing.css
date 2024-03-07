@@ -3,7 +3,9 @@
     position: fixed;
     width: 100%;
     padding: 2rem 4rem;
-    transition: padding 0.3s, background-color 0.3s;
+    transition:
+        padding 0.3s,
+        background-color 0.3s;
 }
 
 #navbar.collapsed {
@@ -13,7 +15,8 @@
 
 #nav-content {
     display: flex;
-    place-content: space-between;
+    justify-content: space-between;
+    align-items: center;
     max-width: 1600px;
     margin: 0 auto;
 }
@@ -21,6 +24,10 @@
 #navbar .title {
     font-size: 2rem;
     font-weight: bold;
+}
+
+#navbar .btn {
+    font-size: 2em;
 }
 
 #tagline {
@@ -44,6 +51,8 @@
 
 #cards-overlay .card {
     width: 16rem;
+    user-select: none;
+    pointer-events: none;
 }
 
 #cards-overlay .card:nth-child(1) {
@@ -92,12 +101,15 @@ p {
 }
 
 .section .section-title {
-    font-size: 1em;
+    font-size: 0.8em;
     color: #999;
     letter-spacing: 0.05em;
 }
 
+.section-cta {
+    margin-top: 1.5rem;
+}
+
 .btn {
-    margin-top: 0.5em;
     padding: 0.25em 1em;
 }
