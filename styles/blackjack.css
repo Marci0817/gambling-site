@@ -35,9 +35,12 @@
 
 #playerInteractionHud{
     position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .startButton{
@@ -58,6 +61,31 @@
     bottom: 0;
     padding: 1rem;
     width: 100%;
+}
+
+#playerInteractions {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem
+}
+
+#playerInteractions button{
+    padding: 0.5rem 1.5rem;      
+    border:none;
+    border-radius: 5px;
+}
+
+.hit{
+    background-color: lightgreen;
+}
+.stand{
+    background-color: lightcoral;
+}
+.split{
+    background-color: lightblue;
+}
+.double{
+    background-color: lightgray; 
 }
 
 
