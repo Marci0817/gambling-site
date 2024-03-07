@@ -13,11 +13,12 @@ async function startNewGame() {
     /* ...later.. */
     addPlayerCard([generateRandomCard(), generateRandomCard()]);
     await sleep(2 * DELAY_BETWEEN_CARDS); // 2* DELAY_BETWEEN_CARDS, 2 because we have 2 cards
-    revealDealerCard();
+    addDealerCard([generateRandomCard()]);
 
     //User interaction needed
     let playerInteraction = document.getElementById("playerInteractions");
     playerInteraction.classList.remove("hidden");
+    playerAction.classList.add("flex");
 }
 
 function playerAction(action) {
@@ -44,15 +45,15 @@ function playerAction(action) {
     addPlayerCard([generateRandomCard()]);
 }
 
-async function addPlayerCard(cards) {
+function addPlayerCard(cards) {
     let playerCardBoard = document.getElementById("playerCardBoard");
 
     revealCard("player", playerCardBoard, cards);
 }
 
-function revealDealerCard() {
+function addDealerCard(cards) {
     let dealerCardBoard = document.getElementById("dealerCardBoard");
-    revealCard("dealer", dealerCardBoard, [generateRandomCard()]);
+    revealCard("dealer", dealerCardBoard, cards);
 }
 
 // Helper functions
@@ -91,6 +92,7 @@ async function revealCard(which, whichPlayerCard, cards) {
     let cardsDom = whichPlayerCard.children;
 
     for (let i = 0; i < cards.length; i++) {
+        //TODO: handle if there is 1 unrevealed card
         let isFirstCard = false;
         //First two cards reveal
         if (
@@ -112,7 +114,10 @@ async function revealCard(which, whichPlayerCard, cards) {
     }
 }
 
-//Add credit to player
+/**
+ * Adds the specified credit to the player's bet and plays a sound based on the credit value.
+ * @param {number} credit - The credit to be added to the player's bet.
+ */
 function addCredit(credit) {
     playerBet += credit;
 
