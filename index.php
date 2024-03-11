@@ -16,7 +16,7 @@
         <nav id="navbar">
             <div id="nav-content">
                 <p class="title font-display">Grandle.</p>
-                <a class="btn" href="/auth.html">Get started</a>
+                <a class="btn" href="./auth.php">Get started</a>
             </div>
         </nav>
         <div id="tagline">
@@ -37,7 +37,7 @@
                 time. The rules are simple, but the game is complex. Beat the
                 dealer and win big!
             </p>
-            <a href="/auth.html" class="btn section-cta">Get started.</a>
+            <a href="./auth.php" class="btn section-cta">Get started.</a>
         </div>
     </body>
 </html>

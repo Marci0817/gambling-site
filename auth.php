@@ -1,3 +1,6 @@
+<?php 
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -18,7 +21,7 @@
 
     <body>
         <div class="">
-            <form id="loginForm" action="" method="">
+            <form id="loginForm" action="./auth.php" method="post">
                 <h1>Login</h1>
                 <input
                     type="text"
@@ -47,7 +50,7 @@
                 </p>
             </form>
 
-            <form id="registerForm" action="auth.html" method="" class="hidden">
+            <form id="registerForm" action="./auth.php" method="post" class="hidden">
                 <h1>Register</h1>
                 <input
                     type="text"
