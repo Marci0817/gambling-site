@@ -8,10 +8,10 @@
         <meta name="author" content="Mihály Marcell, Nyéki Máté Gyula" />
         <title>Blackjack</title>
 
-        <link rel="stylesheet" href="styles/global.css" />
-        <link rel="stylesheet" href="styles/blackjack.css" />
+        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="/styles/blackjack.css" />
 
-        <script src="scripts/blackjack.js" defer></script>
+        <script src="/scripts/blackjack.js" defer></script>
     </head>
 
     <body>
@@ -39,8 +39,8 @@
         <div>
             <div id="dealerBoard">
                 <div id="dealerCardBoard">
-                    <img src="./assets/cards/cardback.webp" />
-                    <img src="./assets/cards/cardback.webp" />
+                    <img src="/assets/cards/cardback.webp" />
+                    <img src="/assets/cards/cardback.webp" />
                 </div>
             </div>
 
@@ -49,8 +49,8 @@
                     <p id="playerCardCount">11</p>
                 </div>
                 <div id="playerCardBoard">
-                    <img src="./assets/cards/cardback.webp" />
-                    <img src="./assets/cards/cardback.webp" />
+                    <img src="/assets/cards/cardback.webp" />
+                    <img src="/assets/cards/cardback.webp" />
                 </div>
                 <div>
                     <p id="playerChips">0</p>
@@ -61,50 +61,50 @@
         <div class="bottomHud">
             <div class="coins">
                 <img
-                    src="./assets/coins/1.webp"
+                    src="/assets/coins/1.webp"
                     alt="1 coin"
                     onclick="addCredit(1)"
                     title="1 credit"
                 />
                 <img
-                    src="./assets/coins/5.webp"
+                    src="/assets/coins/5.webp"
                     alt="5 coin"
                     onclick="addCredit(5)"
                     title="5 credit"
                 />
                 <img
-                    src="./assets/coins/10.webp"
+                    src="/assets/coins/10.webp"
                     alt="10 coin"
                     onclick="addCredit(10)"
                     title="10 credit"
                 />
                 <img
-                    src="./assets/coins/25.webp"
+                    src="/assets/coins/25.webp"
                     alt="25 coin"
                     onclick="addCredit(25)"
                     title="25 credit"
                 />
                 <br />
                 <img
-                    src="./assets/coins/100.webp"
+                    src="/assets/coins/100.webp"
                     alt="100 coin"
                     onclick="addCredit(100)"
                     title="100 credit"
                 />
                 <img
-                    src="./assets/coins/1000.webp"
+                    src="/assets/coins/1000.webp"
                     alt="1000 coin"
                     onclick="addCredit(1000)"
                     title="1000 credit"
                 />
                 <img
-                    src="./assets/coins/5000.webp"
+                    src="/assets/coins/5000.webp"
                     alt="5000 coin"
                     onclick="addCredit(5000)"
                     title="5000 credit"
                 />
                 <img
-                    src="./assets/coins/10000.webp"
+                    src="/assets/coins/10000.webp"
                     alt="10000 coin"
                     onclick="addCredit(10000)"
                     title="10000 credit"

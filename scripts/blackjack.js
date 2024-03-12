@@ -70,7 +70,7 @@ function setPlayerBetCount(value) {
 
 function newCardSound() {
     if (getSoundValue()) {
-        let audio = new Audio("./assets/sounds/newcardintable.mp3");
+        let audio = new Audio("/assets/sounds/newcardintable.mp3");
         audio.play();
     }
 }
@@ -98,7 +98,7 @@ async function revealCard(which, whichPlayerCard, cards) {
         console.log(cardsDom[i].attributes.src.nodeValue);
         if (
             cardsDom[i].attributes.src.nodeValue ===
-            "./assets/cards/cardback.webp"
+            "/assets/cards/cardback.webp"
         ) {
             cardsDom[i].attributes.src.nodeValue = cards[i];
             isFirstCard = true;
@@ -125,25 +125,25 @@ function addCredit(credit) {
     if (getSoundValue()) {
         if (credit > 0 && credit < 10) {
             //1-5
-            let audio = new Audio("./assets/sounds/chip2.mp3");
+            let audio = new Audio("/assets/sounds/chip2.mp3");
             audio.play();
         }
 
         if (credit >= 10 && credit <= 25) {
             //10-25
-            let audio = new Audio("./assets/sounds/chip3.mp3");
+            let audio = new Audio("/assets/sounds/chip3.mp3");
             audio.play();
         }
 
         if (credit > 25 && credit <= 1000) {
             //100-1000
-            let audio = new Audio("./assets/sounds/chip4.mp3");
+            let audio = new Audio("/assets/sounds/chip4.mp3");
             audio.play();
         }
 
         if (credit > 1000) {
             //5000-10000+
-            let audio = new Audio("./assets/sounds/chip5.mp3");
+            let audio = new Audio("/assets/sounds/chip5.mp3");
             audio.play();
         }
     }
@@ -172,5 +172,5 @@ function generateRandomCard() {
             break;
     }
 
-    return `./assets/cards/${cardNumber}-${cardSuit}.webp`;
+    return `/assets/cards/${cardNumber}-${cardSuit}.webp`;
 }

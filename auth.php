@@ -13,15 +13,15 @@
         <meta name="keywords" content="gambling, site, login, register" />
         <title>Login Register form</title>
 
-        <link rel="stylesheet" href="styles/global.css" />
-        <link rel="stylesheet" href="styles/auth.css" />
+        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="/styles/auth.css" />
 
-        <script src="scripts/auth.js" defer></script>
+        <script src="/scripts/auth.js" defer></script>
     </head>
 
     <body>
         <div class="">
-            <form id="loginForm" action="./auth.php" method="post">
+            <form id="loginForm" action="/auth.php" method="post">
                 <h1>Login</h1>
                 <input
                     type="text"
@@ -50,7 +50,7 @@
                 </p>
             </form>
 
-            <form id="registerForm" action="./auth.php" method="post" class="hidden">
+            <form id="registerForm" action="/auth.php" method="post" class="hidden">
                 <h1>Register</h1>
                 <input
                     type="text"
