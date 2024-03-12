@@ -1,0 +1,27 @@
+#coinFlip{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.flipCoin{
+    animation: flipping 1s infinite alternate linear;
+
+}
+
+@keyframes flipping {
+    0% {
+        transform: rotateY(0deg);
+        content:url(/assets/coins/head.png)
+    }
+    50%{
+        transform: rotateY(180deg);
+        content:url(/assets/coins/tail.png)
+    }
+    100% {
+        transform: rotateY(360deg);
+        content:url(/assets/coins/head.png)
+    }
+}
