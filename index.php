@@ -40,4 +40,7 @@
             <a href="/auth.php" class="btn section-cta">Get started.</a>
         </div>
     </body>
+    <script>
+        document.body.appendChild(createCard(14, "d"));
+    </script>
 </html>

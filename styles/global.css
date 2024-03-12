@@ -58,6 +58,16 @@ input:focus {
     display: none;
 }
 
-.flex{
+.flex {
     display: flex;
+}
+
+.card {
+    width: 240px;
+    height: 336px;
+    background-image: url("/assets/cards/cards.png");
+}
+
+.back {
+    background-image: url("/assets/cards/cardback.webp");
 }
