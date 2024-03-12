@@ -7,6 +7,7 @@
         <meta name="keywords" content="gambling, site" />
         <meta name="author" content="Mihály Marcell, Nyéki Máté Gyula" />
         <title>gambling-site</title>
+        <script src="/scripts/cards.js"></script>
         <script src="/scripts/navbar.js" defer></script>
         <link rel="stylesheet" href="/styles/global.css" />
         <link rel="stylesheet" href="/styles/landing.css" />
@@ -25,9 +26,6 @@
                 gambling experience.
             </h1>
             <div id="cards-overlay">
-                <img class="card" src="/assets/cards/A-1.webp" alt="" />
-                <img class="card" src="/assets/cards/8-4.webp" alt="" />
-                <img class="card" src="/assets/cards/3-1.webp" alt="" />
             </div>
         </div>
         <div class="section">
@@ -41,6 +39,10 @@
         </div>
     </body>
     <script>
-        document.body.appendChild(createCard(14, "d"));
+        const cardsOverlay = document.getElementById('cards-overlay');
+   
+        cardsOverlay.appendChild(createCard(14, 's'));
+        cardsOverlay.appendChild(createCard(8, 'c'));
+        cardsOverlay.appendChild(createCard(3, 's'));
     </script>
 </html>
