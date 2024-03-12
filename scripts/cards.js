@@ -1,15 +1,14 @@
 function createCard(index, suit) {
     const suits = "cdhs";
-    const w = 240;
-    const h = 336;
-    const padding = 1;
+    const rows = 13;
+    const cols = 4;
 
-    let left = suits.indexOf(suit.toLowerCase()) * (w + padding * 2) + padding;
-    let top = (index - 2) * (h + padding * 2) + padding;
+    let left = suits.indexOf(suit.toLowerCase()) * 100;
+    let top = (index - 2) * 100;
 
     let el = document.createElement("div");
     el.classList.add("card");
-    el.style.backgroundPosition = `-${left}px -${top}px`;
+    el.style.backgroundPosition = `-${left}% -${top}%`;
 
     return el;
 }

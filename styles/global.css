@@ -64,8 +64,9 @@ input:focus {
 
 .card {
     width: 240px;
-    height: 336px;
-    background-image: url("/assets/cards/cards.png");
+    aspect-ratio: 5 / 7;
+    background-image: url("/assets/cards/deck.png");
+    background-size: 400% 1300%;
 }
 
 .back {
