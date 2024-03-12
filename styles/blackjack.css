@@ -88,12 +88,44 @@
     background-color: lightgray; 
 }
 
+.hide{
+    display: none;
+    width: 100%;
+    outline: none;
+    border: none;
+    color:white;
+    padding: 0.2rem 0;
+    font-size: 1rem;
+}
+
+.bottomHud{
+    animation: fadeIn .5s ease-in-out;
+}
+
+/* animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 @media screen and (max-width: 768px) {
     .bottomHud {
         display: flex;
         justify-content: center;
-        
+        background-color: rgba(0,0,0,0.8);
+        width: 100%;
+        padding-top: 1rem;
+    }
+    .hide{
+        display: block;
+        background-color: rgba(0,0,0,1);
+        position: absolute;
+        top: 0;
     }
 
 }

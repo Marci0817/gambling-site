@@ -59,7 +59,8 @@
         </div>
 
         <div class="bottomHud">
-            <div class="coins">
+            <button id="hideButton" class="hide" onclick="showCoins()">Hide coins</button>
+            <div id="coinsHud" class="coins">
                 <img
                     src="/assets/coins/1.webp"
                     alt="1 coin"

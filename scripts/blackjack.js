@@ -5,6 +5,8 @@ let playerBet = 0; //Player current bet
 let dealerCards = [];
 let playerCards = [];
 
+let isCoinsHudVisible = true;
+
 async function startNewGame() {
     let startButton = document.getElementById("startButton");
     startButton.classList.add("hidden");
@@ -173,4 +175,18 @@ function generateRandomCard() {
     }
 
     return `/assets/cards/${cardNumber}-${cardSuit}.webp`;
+}
+
+function showCoins() {
+    let coins = document.getElementById("coinsHud");
+    let button = document.getElementById("hideButton");
+    if (isCoinsHudVisible) {
+        coins.classList.add("hidden");
+        isCoinsHudVisible = false;
+        button.innerText = "Show coins";
+        return;
+    }
+    isCoinsHudVisible = true;
+    coins.classList.remove("hidden");
+    button.innerText = "Hide coins";
 }
