@@ -26,6 +26,7 @@ async function startNewGame() {
 function playerAction(action) {
     let playerInteraction = document.getElementById("playerInteractions");
     playerInteraction.classList.add("hidden");
+    addDealerCard([generateRandomCard()]);
     switch (action) {
         case "hit":
             //later request
@@ -49,13 +50,12 @@ function playerAction(action) {
 
 function addPlayerCard(cards) {
     let playerCardBoard = document.getElementById("playerCardBoard");
-
-    revealCard("player", playerCardBoard, cards);
+    revealCard(playerCardBoard, cards);
 }
 
 function addDealerCard(cards) {
     let dealerCardBoard = document.getElementById("dealerCardBoard");
-    revealCard("dealer", dealerCardBoard, cards);
+    revealCard(dealerCardBoard, cards);
 }
 
 // Helper functions
@@ -83,35 +83,40 @@ async function sleep(interval) {
     });
 }
 
-/**
- * Reveals the cards in the specified player's hand.
- * @param {string} which - player or dealer to reveal the card
- * @param {HTMLElement} whichPlayerCard - The container element for the player/dealer's cards.
- * @param {string[]} cards - An array of card image URLs.
- * @returns {Promise<void>} - A promise that resolves when all cards are revealed.
- */
-async function revealCard(which, whichPlayerCard, cards) {
-    let cardsDom = whichPlayerCard.children;
+async function revealCard(whichPlayerCard, cards) {
+    let cardBacksIndex = [];
+
+    for (let i = 0; i < whichPlayerCard.children.length; i++) {
+        if (whichPlayerCard.children[i].classList.contains("back")) {
+            cardBacksIndex.push(i);
+        }
+    }
+
+    if (cardBacksIndex.length == 1) {
+        whichPlayerCard.children[cardBacksIndex[0]].parentNode.replaceChild(
+            cards[0],
+            whichPlayerCard.children[cardBacksIndex[0]]
+        );
+        newCardSound();
+        await sleep(DELAY_BETWEEN_CARDS);
+        return;
+    }
+
+    if (cardBacksIndex.length == 2) {
+        for (let i = 0; i < cardBacksIndex.length; i++) {
+            if (cards.length === 1 && i === 1) break;
+            whichPlayerCard.children[cardBacksIndex[i]].parentNode.replaceChild(
+                cards[i],
+                whichPlayerCard.children[cardBacksIndex[i]]
+            );
+            newCardSound();
+            await sleep(DELAY_BETWEEN_CARDS);
+        }
+        return;
+    }
 
     for (let i = 0; i < cards.length; i++) {
-        //TODO: handle if there is 1 unrevealed card
-        let isFirstCard = false;
-        //First two cards reveal
-        console.log(cardsDom[i].attributes.src.nodeValue);
-        if (
-            cardsDom[i].attributes.src.nodeValue ===
-            "/assets/cards/cardback.webp"
-        ) {
-            cardsDom[i].attributes.src.nodeValue = cards[i];
-            isFirstCard = true;
-        }
-
-        if (!isFirstCard) {
-            let newPlayerCard = document.getElementById(which + "CardBoard");
-            let newCard = document.createElement("img");
-            newCard.src = cards[i];
-            newPlayerCard.appendChild(newCard);
-        }
+        whichPlayerCard.appendChild(cards[i]);
         newCardSound();
         await sleep(DELAY_BETWEEN_CARDS);
     }
@@ -157,24 +162,23 @@ function generateRandomCard() {
     let cardNumber = Math.floor(Math.random() * 13) + 2;
     let cardSuit = Math.floor(Math.random() * 4) + 1;
 
-    switch (cardNumber) {
-        case 11:
-            cardNumber = "J";
+    switch (cardSuit) {
+        case 1:
+            cardSuit = "c";
             break;
-        case 12:
-            cardNumber = "Q";
+        case 2:
+            cardSuit = "d";
             break;
-        case 13:
-            cardNumber = "K";
+        case 3:
+            cardSuit = "h";
             break;
-        case 14:
-            cardNumber = "A";
+        case 4:
+            cardSuit = "s";
             break;
         default:
             break;
     }
-
-    return `/assets/cards/${cardNumber}-${cardSuit}.webp`;
+    return createCard(cardNumber, cardSuit);
 }
 
 function showCoins() {
