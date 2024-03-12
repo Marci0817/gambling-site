@@ -10,13 +10,16 @@
 
         <link rel="stylesheet" href="/styles/global.css" />
         <link rel="stylesheet" href="/styles/blackjack.css" />
-
+        
+        <script src="/scripts/cards.js"></script>
         <script src="/scripts/blackjack.js" defer></script>
     </head>
 
     <body>
-        <label for="soundOnOff">Sounds on</label>
-        <input type="checkbox" name="soundOnOff" id="soundOnOff" checked />
+        <div id="settings">
+            <input type="checkbox" name="soundOnOff" id="soundOnOff" checked />
+            <label for="soundOnOff">Sounds on</label>
+        </div>
         <div id="playerInteractionHud">
             <div id="startButton">
                 <button class="startButton" onclick="startNewGame()">
@@ -39,8 +42,7 @@
         <div>
             <div id="dealerBoard">
                 <div id="dealerCardBoard">
-                    <img src="/assets/cards/cardback.webp" />
-                    <img src="/assets/cards/cardback.webp" />
+                    
                 </div>
             </div>
 
@@ -49,8 +51,7 @@
                     <p id="playerCardCount">11</p>
                 </div>
                 <div id="playerCardBoard">
-                    <img src="/assets/cards/cardback.webp" />
-                    <img src="/assets/cards/cardback.webp" />
+                    
                 </div>
                 <div>
                     <p id="playerChips">0</p>
@@ -112,5 +113,12 @@
                 />
             </div>
         </div>
+        <script>
+            /* Table initialization */
+            for (let i = 0; i < 2; i++) {
+                document.getElementById("playerCardBoard").appendChild(createCardBack());
+                document.getElementById("dealerCardBoard").appendChild(createCardBack());
+            }
+        </script>
     </body>
 </html>
