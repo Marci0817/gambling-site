@@ -4,11 +4,10 @@
 
 #### Lehetséges útvonalak - excel táblázatban írt címe
 
-/index.php - Bemutató oldal
-/blackjack.php - Blackjack
-/coinflip.php - Coinflip
-/profile.php - Profil oldal
-/xx.php - Befizetős minigame
+-   /index.php - Bemutató oldal
+-   /blackjack.php - Blackjack /coinflip.php - Coinflip
+-   /profile.php - Profil oldal
+-   /xx.php - Befizetős minigame
 
 **Jelenlegi állapot**
 https://trello.com/b/XbhGhbGz
