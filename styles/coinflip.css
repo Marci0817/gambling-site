@@ -4,15 +4,60 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    margin-top: 10rem;
 }
 
 .flipCoin{
-    animation: flipping 1s infinite alternate linear;
+    animation: flipping .8s 5 ease-out forwards;
 
 }
 
+button{
+    padding: 0.5rem 1.7rem;      
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--primary);
+    color:white;
+    font-weight: bold;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.icon:hover{
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.selected{
+    outline: 5px solid lightblue;
+    border-radius: 100%;
+}
+
+#hudContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#sides{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+h3{
+    text-align: center;
+}
+
 @keyframes flipping {
-    0% {
+    from {
         transform: rotateY(0deg);
         content:url(/assets/coins/head.png)
     }
@@ -23,5 +68,13 @@
     100% {
         transform: rotateY(360deg);
         content:url(/assets/coins/head.png)
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    #coinFlip{
+        flex-direction: column;
+        text-align: center;
     }
 }
