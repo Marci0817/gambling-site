@@ -1,5 +1,6 @@
 {
 	"dependencies": {
-		"@prettier/plugin-php": "^0.22.2"
+		"@prettier/plugin-php": "^0.22.2",
+		"browser-sync": "^3.0.2"
 	}
 }
