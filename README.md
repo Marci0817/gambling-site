@@ -17,4 +17,4 @@ https://trello.com/b/XbhGhbGz
 **Hot reload**
 
 1.  `npm i -g browser-sync`
-2.  `browser-sync start --proxy "127.0.0.1" --files "\*_/_"`
+2.  `browser-sync start --proxy "127.0.0.1" --files "**/*"`
