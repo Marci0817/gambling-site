@@ -104,8 +104,11 @@ th{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    align-items: center;
-    justify-content: center;
+    margin: 5rem 10rem;
+}
+
+#history h2{
+    text-align: center;
 }
 
 
@@ -129,5 +132,9 @@ th{
     #profileSection{
         align-items: center;
         justify-content: center;
+    }
+
+    #history{
+        margin: 2rem .5rem;
     }
 }
