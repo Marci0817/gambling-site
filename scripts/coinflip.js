@@ -12,8 +12,13 @@ function flipCoin() {
         return;
     }
 
-    let imageContainer = document.getElementById("imageContainer");
-    imageContainer.classList.add("flipCoin");
+    let imageContainer = document.getElementById("coin");
+    let rnd = Math.floor(Math.random() * 10);
+    if (rnd % 2 == 0) {
+        imageContainer.classList.add("heads");
+    } else {
+        imageContainer.classList.add("tails");
+    }
 }
 
 function selectSide(side) {
@@ -27,4 +32,10 @@ function selectSide(side) {
         tail.classList.add("selected");
     }
     selectedSide = side;
+}
+
+async function sleep(interval) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, interval);
+    });
 }

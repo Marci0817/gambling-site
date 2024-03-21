@@ -7,11 +7,6 @@
     margin-top: 10rem;
 }
 
-.flipCoin{
-    animation: flipping .8s 5 ease-out forwards;
-
-}
-
 button{
     padding: 0.5rem 1.7rem;      
     border:none;
@@ -22,59 +17,85 @@ button{
     font-weight: bold;
 }
 
+#hudContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .icon{
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 
 .icon:hover{
-    transform: scale(1.1);
-    transition: .3s;
+  transform: scale(1.1);
+  transition: .3s;
 }
 
 .selected{
-    outline: 5px solid lightblue;
-    border-radius: 100%;
+  outline: 5px solid lightblue;
+  border-radius: 100%;
 }
 
-#hudContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-#sides{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin: 1rem 0;
-}
-
-h3{
-    text-align: center;
-}
-
-@keyframes flipping {
-    from {
-        transform: rotateY(0deg);
-        content:url(/assets/coins/head.png)
-    }
-    50%{
-        transform: rotateY(180deg);
-        content:url(/assets/coins/tail.png)
-    }
-    100% {
-        transform: rotateY(360deg);
-        content:url(/assets/coins/head.png)
-    }
-}
-
-
+#coin {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  }
+  #coin div {
+    width: 100%;
+    height: 100%;
+            border-radius: 50%;
+            box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+  }
+  .side-a {
+    background-image: url('/assets/coins/head.png');
+    background-size: cover; 
+  }
+  .side-b {
+   background-image: url('/assets/coins/tail.png'); 
+    background-size: cover; 
+  }
+  
+  #coin {
+    transition: 1s ease-in;
+    transform-style: preserve-3d;
+  }
+  #coin div {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  .side-a {
+    z-index: 100;
+  }
+  .side-b {
+    transform: rotateY(-180deg);
+  
+  }
+  
+  #coin.heads {
+         animation: flipHeads 3s ease-out forwards;
+  }
+  #coin.tails {
+         animation: flipTails 3s ease-out forwards;
+  }
+  
+  @keyframes flipHeads {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(1800deg); }
+  }
+  @keyframes flipTails {
+    from {  transform: rotateY(0); }
+    to { transform: rotateY(1980deg); }
+  }
+  
+  
+  
 @media screen and (max-width: 768px) {
     #coinFlip{
         flex-direction: column;
         text-align: center;
     }
 }
+

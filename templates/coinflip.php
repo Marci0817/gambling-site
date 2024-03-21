@@ -14,8 +14,9 @@ $scripts = [
 <?php ob_start(); ?>
 
 <div id="coinFlip">
-    <div id="imageContainer">
-        <img src="/assets/coins/head.png" id="flipHead" />
+    <div id="coin">
+        <div class="side-a"></div>
+        <div class="side-b"></div>
     </div>
     <div id="hudContainer">
         <h1>CoinFlip</h1>
