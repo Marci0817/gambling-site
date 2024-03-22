@@ -3,12 +3,12 @@ $title = "Blackjack";
 
 $styles = [
     "global",
-    "blackjack"
+    "blackjack",
 ];
 
 $scripts = [
     "cards" => [],
-    "blackjack" => ["defer"]
+    "blackjack" => ["defer"],
 ];
 ?>
 

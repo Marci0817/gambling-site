@@ -3,16 +3,14 @@ $title = "Coinflip";
 
 $styles = [
     "global",
-    "coinflip"
+    "coinflip",
 ];
 
 $scripts = [
-    "coinflip" => ["defer"]
+    "coinflip" => ["defer"],
 ];
 ?>
-
 <?php ob_start(); ?>
-
 <div id="coinFlip">
     <div id="coin">
         <div class="side-a"></div>
