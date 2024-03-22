@@ -7,7 +7,7 @@
 -   /index.php - Bemutató oldal
 -   /blackjack.php - Blackjack /coinflip.php - Coinflip
 -   /profile.php - Profil oldal
--   /xx.php - Befizetős minigame
+-   /deposit.php - Befizetős minigame
 
 **Jelenlegi állapot**
 https://trello.com/b/XbhGhbGz
