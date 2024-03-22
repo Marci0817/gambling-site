@@ -2,17 +2,14 @@
 $title = "Profile";
 
 $styles = [
-    "profile"
+    "profile",
 ];
 
 $scripts = [];
 ?>
 
 <?php ob_start(); ?>
-<?php //include("navbar.php"); 
-?>
 <div id="container">
-
     <div id="profileSection">
         <div id="userInformation">
             <img src="/assets/profile.jpg" alt="profile picture" />
