@@ -33,6 +33,12 @@ button{
   transition: .3s;
 }
 
+#sides{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .selected{
   outline: 5px solid lightblue;
   border-radius: 100%;
