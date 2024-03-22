@@ -1,4 +1,7 @@
 <?php
+
+$title = "Deposit";
+
 $styles = [
     "deposit"
 ];

@@ -1,5 +1,5 @@
 <?php
-$title = "fasz";
+$title = "Landing page";
 
 $styles = [
     "landing",
