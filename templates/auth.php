@@ -1,5 +1,5 @@
 <?php
-$title = "Login register page";
+$title = "Login/register";
 
 $styles = [
     "auth"

@@ -1,5 +1,5 @@
 <?php
-$title = "Landing page";
+$title = "Casino Grandle";
 
 $styles = [
     "landing",

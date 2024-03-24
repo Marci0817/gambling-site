@@ -1,5 +1,5 @@
 <?php
-$title = "Coinflip";
+$title = "Coin-flip";
 
 $styles = [
     "coinflip",
