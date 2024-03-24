@@ -22,13 +22,20 @@ $scripts = [
     </div>
 </div>
 <div class="section">
-    <h2 class="font-display section-title">Blackjack</h2>
-    <p>
-        Try yourself in the most popular card game (after poker) of all
-        time. The rules are simple, but the game is complex. Beat the
-        dealer and win big!
-    </p>
-    <a href="/auth.php" class="btn section-cta">Get started.</a>
+    <div class="section-body">
+        <h2 class="font-display section-title">Blackjack</h2>
+        <p>
+            Try yourself in the most popular card game (after poker) of all
+            time. The rules are simple, but the game is complex. Beat the
+            dealer and win big!
+        </p>
+        <a href="/auth.php" class="btn section-cta">Get started.</a>
+    </div>
+    <img class="dealer" src="/assets/dealer.webp" alt="Dealer" />
+</div>
+<div id="footer">
+    <p>&copy; 2024 Grandle Ltd. All rights. Reserved.</p>
+    <p class="disclaimer">Grandle Ltd.<sup>&reg;</sup> is not responsible for property losses nor crumbling relationships incurred as a result of your gambling habits. Please be addicted responsibly.</p>
 </div>
 <script>
     const cardsOverlay = document.getElementById('cards-overlay');

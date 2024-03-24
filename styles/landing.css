@@ -61,19 +61,31 @@ h2 {
     font-weight: lighter;
 }
 
-p {
+.section p {
     font-weight: lighter;
     max-width: 40ch;
 }
 
 .section {
+    padding: 0 5rem;
     font-size: 1.5rem;
     background: radial-gradient(circle, #111 40%, #151515 100%);
-    padding: 6rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.section .section-body {
+    padding: 6rem 0;
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 0.75rem;
+}
+
+.section .dealer {
+    min-width: 0;
+    max-width: 16rem;
 }
 
 .section .section-title {
@@ -90,6 +102,17 @@ p {
     padding: 0.25em 1em;
 }
 
+#footer {
+    width: 100%;
+    background-color: #333;
+    padding: 1rem 2rem;
+}
+
+#footer .disclaimer {
+    font-size: 0.8em;
+    color: gray;
+}
+
 @media only screen and (max-width: 1100px) {
     #tagline {
         padding: 0;
@@ -104,5 +127,9 @@ p {
 
     #cards-overlay {
         right: 0;
+    }
+
+    .section .dealer {
+        display: none;
     }
 }
