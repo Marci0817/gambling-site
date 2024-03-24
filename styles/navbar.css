@@ -1,16 +1,15 @@
 #navbar {
+    top: 0;
     z-index: 1000;
     position: sticky;
     width: 100%;
     padding: 2rem 4rem;
-    transition:
-        padding 0.3s,
-        background-color 0.3s;
+    transition: background-color 0.3s;
+    background-color: var(--background);
 }
 
-#navbar.collapsed {
-    background-color: var(--background);
-    padding: 1rem 4rem;
+#navbar.at-top {
+    background-color: var(--primary);
 }
 
 #nav-content {
@@ -21,14 +20,14 @@
     margin: 0 auto;
 }
 
-#nav-content .routes{
+#nav-content .routes {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-#nav-content .routes > a{
+#nav-content .routes > a {
     margin-right: 1rem;
     text-decoration: none;
     color: var(--accent);
@@ -36,7 +35,7 @@
     font-weight: 600;
 }
 
-#nav-content .routes > a:hover{
+#nav-content .routes > a:hover {
     color: var(--primary);
 }
 
@@ -51,33 +50,32 @@
     font-size: 1.25em;
 }
 
-#navPlayerHud{
+#navPlayerHud {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.deposit{
-    margin: 0 .6rem;
-    padding: .4rem 1rem;
+.deposit {
+    margin: 0 0.6rem;
+    padding: 0.4rem 1rem;
     background-color: green;
     text-decoration: none;
     color: white;
-
 }
 
-#navPlayerHud > img{
+#navPlayerHud > img {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
     margin-right: 1rem;
-
 }
 
-.viewProfile{
-    font-size: .8rem;
+.viewProfile {
+    font-size: 0.8rem;
     text-decoration: none;
     color: var(--accent);
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
+
