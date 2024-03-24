@@ -7,6 +7,7 @@ $styles = [
 
 $scripts = [
     "cards" => [],
+    "navbar" => ["defer"],
 ];
 ?>
 
