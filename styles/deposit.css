@@ -7,6 +7,10 @@ body {
     overflow: hidden;
 }
 
+#bubble-template {
+    display: none;
+}
+
 .bubble {
     cursor: pointer;
     position: absolute;
@@ -18,6 +22,14 @@ body {
     background-color: var(--primary);
 }
 
+.bubble .value {
+    pointer-events: none;
+}
+
+.bubble input {
+    display: none;
+}
+
 .bubble.expanded {
     z-index: 10;
     cursor: unset;
@@ -25,4 +37,21 @@ body {
     height: auto;
     padding: 0.75rem;
     border-radius: 0;
+}
+
+
+.bubble.expanded .value {
+    opacity: 0.5;
+}
+
+.bubble.expanded input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--accent);
+    font-size: 1rem;
+    font-family: "LT Soul", sans-serif;
 }

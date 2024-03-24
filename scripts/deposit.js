@@ -19,14 +19,19 @@ let bubbles = [];
 function tick(delta) {
     if (bubbles.length < 5) {
         let value = Math.floor(Math.random() * 3000);
-        let el = document.createElement("div");
-        el.innerText = "$" + value;
-        el.classList.add("bubble");
-        container.appendChild(el);
+
+        let el = document.getElementById("bubble-template").cloneNode(true);
+        
+        const valueEl = el.getElementsByClassName("value")[0];
+        valueEl.innerText = "$" + value;
+        el.removeAttribute("id");
         el.onclick = () => {
             el.classList.add("expanded");
-            el.innerHTML = numberToSzamnev(value);
+            el.getElementsByTagName("input")[0].focus();
+            valueEl.innerText = numberToSzamnev(value);
         };
+
+        container.appendChild(el);
 
         const x = Math.floor(Math.random() * container.clientWidth);
         const y = Math.floor(Math.random() * container.clientHeight);
