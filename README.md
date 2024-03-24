@@ -1,5 +1,9 @@
 # Gambling site _( Web tervezés gyakorlat )_
 
+## Projekt telepítése
+
+...
+
 ## Projekt felépítése
 
 #### Lehetséges útvonalak - excel táblázatban írt címe
@@ -16,5 +20,5 @@ https://trello.com/b/XbhGhbGz
 
 **Hot reload**
 
-1.  `npm i -g browser-sync`
-2.  `browser-sync start --proxy "127.0.0.1" --files "**/*"`
+1.  `pnpm install`
+2.  `pnpm run dev`
