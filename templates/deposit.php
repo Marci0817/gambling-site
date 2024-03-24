@@ -12,6 +12,7 @@ $scripts = [
 ?>
 
 <?php ob_start(); ?>
+<?php include("./templates/navbar.php"); ?>
 <div id="container">
 
 </div>

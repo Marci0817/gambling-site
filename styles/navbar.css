@@ -3,7 +3,7 @@
     z-index: 1000;
     position: sticky;
     width: 100%;
-    padding: 2rem 4rem;
+    padding: 1.5rem 4rem;
     transition: background-color 0.3s;
     background-color: var(--background);
 }
@@ -12,7 +12,7 @@
     background-color: var(--primary);
 }
 
-#nav-content {
+#navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,14 +20,14 @@
     margin: 0 auto;
 }
 
-#nav-content .routes {
+#navbar .right {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-#nav-content .routes > a {
+#navbar .right > a {
     margin-right: 1rem;
     text-decoration: none;
     color: var(--accent);
@@ -35,7 +35,7 @@
     font-weight: 600;
 }
 
-#nav-content .routes > a:hover {
+#navbar .right > a:hover {
     color: var(--primary);
 }
 
@@ -50,32 +50,30 @@
     font-size: 1.25em;
 }
 
-#navPlayerHud {
+#navbar .deposit {
+    margin: 0 0.6em;
+    padding: 0.4em 1em;
+    background-color: green;
+    text-decoration: none;
+    color: white;
+}
+
+#navbar .profile {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.deposit {
-    margin: 0 0.6rem;
-    padding: 0.4rem 1rem;
-    background-color: green;
-    text-decoration: none;
-    color: white;
-}
-
-#navPlayerHud > img {
+#navbar .profile > img {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    margin-right: 1rem;
+    margin-right: 0.75em;
 }
 
-.viewProfile {
-    font-size: 0.8rem;
+#navbar .viewProfile {
+    font-size: 0.8em;
     text-decoration: none;
     color: var(--accent);
-    font-size: 0.8rem;
 }
-

@@ -11,6 +11,7 @@ $scripts = [
 ?>
 
 <?php ob_start(); ?>
+<?php include("./templates/navbar.php"); ?>
 <div id="tagline">
     <h1 class="font-display">
         The most <b>sophisticated</b><br />

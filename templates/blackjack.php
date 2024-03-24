@@ -13,6 +13,7 @@ $scripts = [
 ?>
 
 <?php ob_start(); ?>
+<?php include("./templates/navbar.php"); ?>
 <div id="settings">
     <input type="checkbox" name="soundOnOff" id="soundOnOff" checked />
     <label for="soundOnOff">Sounds on</label>

@@ -11,6 +11,7 @@ $scripts = [
 ];
 ?>
 <?php ob_start(); ?>
+<?php include("./templates/navbar.php"); ?>
 <div id="coinFlip">
     <div id="coin">
         <div class="side-a"></div>
