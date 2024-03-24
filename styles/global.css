@@ -61,7 +61,7 @@ body {
 }
 
 #navbar .right > a:hover {
-    color: var(--primary);
+    text-decoration: underline;
 }
 
 #navbar .title {
@@ -76,11 +76,8 @@ body {
 }
 
 #navbar .deposit {
-    margin: 0 0.6em;
-    padding: 0.4em 1em;
     background-color: green;
-    text-decoration: none;
-    color: white;
+    padding: 0.5rem 1.25rem;
 }
 
 #navbar .profile {
@@ -116,6 +113,7 @@ body {
 }
 
 .btn:hover {
+    text-decoration: none !important;
     opacity: 0.95;
 }
 

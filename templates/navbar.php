@@ -4,7 +4,7 @@
         <div class="right">
             <a href="/blackjack.php">Blackjack</a>
             <a href="/coinflip.php">Coin-flip</a>
-            <a href="/deposit.php" class="deposit">Deposit</a>
+            <a href="/deposit.php" class="deposit btn">Deposit</a>
             <div class="profile">
                 <img src="/assets/profile.jpg" alt="avatar">
                 <a href="/profile.php" class="viewProfile">
