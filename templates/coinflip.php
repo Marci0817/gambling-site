@@ -2,7 +2,6 @@
 $title = "Coinflip";
 
 $styles = [
-    "global",
     "coinflip",
 ];
 

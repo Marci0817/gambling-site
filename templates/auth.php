@@ -2,7 +2,6 @@
 $title = "Login register page";
 
 $styles = [
-    "global",
     "auth"
 ];
 

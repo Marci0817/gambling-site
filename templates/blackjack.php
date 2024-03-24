@@ -2,7 +2,6 @@
 $title = "Blackjack";
 
 $styles = [
-    "global",
     "blackjack",
 ];
 

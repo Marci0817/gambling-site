@@ -24,6 +24,7 @@ function tick(delta) {
         el.classList.add("bubble");
         container.appendChild(el);
         el.onclick = () => {
+            el.classList.add("expanded");
             el.innerHTML = numberToSzamnev(value);
         };
 
@@ -31,8 +32,8 @@ function tick(delta) {
         const y = Math.floor(Math.random() * container.clientHeight);
 
         const angle = Math.atan2(
-            container.clientWidth / 2 - x,
-            container.clientHeight / 2 - y
+            container.clientHeight / 2 - y,
+            container.clientWidth / 2 - x
         );
 
         bubbles.push({
@@ -45,15 +46,18 @@ function tick(delta) {
     }
 
     for (let bubble of bubbles) {
-        bubble.x += Math.cos(bubble.angle) * delta * 0.03;
-        bubble.y += Math.sin(bubble.angle) * delta * 0.03;
-        bubble.el.style.transform = `translate(${bubble.x}px, ${bubble.y}px)`;
+        bubble.x +=
+            (Math.cos(bubble.angle) * delta * 0.05 * bubble.value) / 2000;
+        bubble.y +=
+            (Math.sin(bubble.angle) * delta * 0.05 * bubble.value) / 2000;
+
+        bubble.el.style.transform = `translate(${bubble.x - 48}px, ${bubble.y - 48}px)`;
 
         if (
-            bubble.x < -96 ||
-            bubble.y < -96 ||
-            bubble.x > container.clientWidth ||
-            bubble.y > container.clientHeight
+            bubble.x < -48 ||
+            bubble.y < -48 ||
+            bubble.x > container.clientWidth + 48 ||
+            bubble.y > container.clientHeight + 48
         ) {
             bubble.el.remove();
             bubbles = bubbles.filter((b) => b !== bubble);
@@ -157,5 +161,3 @@ function numberToSzamnev(number) {
 
     return res;
 }
-
-for (let i = 0; i <= 3000; i++) console.log(numberToSzamnev(i));
