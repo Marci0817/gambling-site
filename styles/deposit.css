@@ -1,18 +1,57 @@
-#container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+body {
     overflow: hidden;
 }
 
+#container {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+#bubble-template {
+    display: none;
+}
+
 .bubble {
+    cursor: pointer;
     position: absolute;
     display: grid;
     place-items: center;
     width: 96px;
     height: 96px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: var(--primary);
+}
+
+.bubble .value {
+    pointer-events: none;
+}
+
+.bubble input {
+    display: none;
+}
+
+.bubble.expanded {
+    z-index: 10;
+    cursor: unset;
+    width: auto;
+    height: auto;
+    padding: 0.75rem;
+    border-radius: 0;
+}
+
+
+.bubble.expanded .value {
+    opacity: 0.5;
+}
+
+.bubble.expanded input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--accent);
+    font-size: 1rem;
+    font-family: "LT Soul", sans-serif;
 }

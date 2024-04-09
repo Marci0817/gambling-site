@@ -1,8 +1,7 @@
 <?php
-$title = "Coinflip";
+$title = "Coin-flip";
 
 $styles = [
-    "global",
     "coinflip",
 ];
 
@@ -11,6 +10,7 @@ $scripts = [
 ];
 ?>
 <?php ob_start(); ?>
+<?php include("./templates/navbar.php"); ?>
 <div id="coinFlip">
     <div id="coin">
         <div class="side-a"></div>
@@ -22,8 +22,8 @@ $scripts = [
         <input type="number" min="1" id="bet" placeholder="Bet amount" />
         <h3>Choose a side</h3>
         <div id="sides">
-            <img src="/assets/coins/head.png" id="head" class="icon" onclick="selectSide('head')" />
-            <img src="/assets/coins/tail.png" id="tail" class="icon" onclick="selectSide('tail')" />
+            <img src="/assets/coins/head.png" alt="Heads" id="head" class="icon" onclick="selectSide('head')" />
+            <img src="/assets/coins/tail.png" alt="Tails" id="tail" class="icon" onclick="selectSide('tail')" />
         </div>
         <button onclick="flipCoin()">Flip the coin</button>
     </div>

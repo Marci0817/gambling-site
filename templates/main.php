@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,14 +16,9 @@
     <?php foreach ($scripts as $script => $opts) : ?>
         <script src="/scripts/<?= $script ?>.js" <?= implode(" ", $opts); ?>></script>
     <?php endforeach; ?>
-
-    <!-- Navbar dependencies -->
-    <script src="/scripts/navbar.js" defer></script>
-    <link rel="stylesheet" href="/styles/navbar.css">
 </head>
 
 <body>
-    <?php include("./templates/navbar.php"); ?>
     <?= $slot ?>
 </body>
 

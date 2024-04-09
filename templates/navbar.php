@@ -1,15 +1,15 @@
 <nav id="navbar">
     <div id="nav-content">
         <a href="/" class="title font-display">Grandle.</a>
-        <div class="routes">
-            <a href="/blackjack.php">blackjack</a>
-            <a href="/coinflip.php">coinflip</a>
-            <div id="navPlayerHud">
-                <a href="/deposit.php" class="deposit" title="Add money">Add money</a>
+        <div class="right">
+            <a href="/blackjack.php">Blackjack</a>
+            <a href="/coinflip.php">Coin-flip</a>
+            <a href="/deposit.php" class="deposit btn">Deposit</a>
+            <div class="profile">
                 <img src="/assets/profile.jpg" alt="avatar">
                 <a href="/profile.php" class="viewProfile">
-                    <p>Jhon doe</p>
-                    <p>view profile</p>
+                    <p>John Doe</p>
+                    <p>View profile</p>
                 </a>
             </div>
         </div>

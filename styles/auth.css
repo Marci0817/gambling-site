@@ -33,21 +33,20 @@ h1 {
     background-color: var(--primary);
 }
 
-input{
+input {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--accent);
     color: white;
 }
 
-body{
+body {
     background-color: var(--background);
 }
 
 .reset-btn {
     color: rgb(96 165 250);
     font-weight: 600;
-
 }
 
 @media screen and (min-width: 768px) {
@@ -55,9 +54,4 @@ body{
         max-width: 70%;
         margin-top: 0;
     }
-
-}
-
-#navbar{
-    display: none;
 }

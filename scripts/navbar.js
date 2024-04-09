@@ -1,4 +1,4 @@
-function init() {
+(() => {
     let navbar = document.getElementById("navbar");
     if (!navbar) {
         console.error(
@@ -7,9 +7,9 @@ function init() {
         return;
     }
 
-    document.addEventListener("scroll", function () {
-        navbar.classList.toggle("collapsed", window.scrollY > 0);
-    });
-}
+    navbar.classList.toggle("at-top", window.scrollY == 0);
 
-init();
+    document.addEventListener("scroll", function () {
+        navbar.classList.toggle("at-top", window.scrollY == 0);
+    });
+})();
