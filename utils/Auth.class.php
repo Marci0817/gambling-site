@@ -1,6 +1,7 @@
 <?php
 
-require_once("./connectionHandler.php");
+require_once(__DIR__ . './connectionHandler.php');
+
 session_start();
 
 class Auth
