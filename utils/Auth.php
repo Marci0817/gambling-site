@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . './connectionHandler.php');
+require_once(__DIR__ . './ConnectionHandler.php');
 
 session_start();
 
