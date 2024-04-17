@@ -13,12 +13,30 @@ function flipCoin() {
     }
 
     let imageContainer = document.getElementById("coin");
-    let rnd = Math.floor(Math.random() * 10);
-    if (rnd % 2 == 0) {
-        imageContainer.classList.add("heads");
-    } else {
-        imageContainer.classList.add("tails");
-    }
+
+    let xhr = new XMLHttpRequest();
+    let response;
+    xhr.open("POST", "../api/coinflip.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = async function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+            response = JSON.parse(xhr.responseText);
+
+            if (response.side === "head") {
+                imageContainer.classList.add("heads");
+            } else {
+                imageContainer.classList.add("tails");
+            }
+            await sleep(3200);
+            alert(
+                response.result == "win"
+                    ? "Yeyy, you won " + response.prize
+                    : "Noo, you lost"
+            );
+        }
+    };
+    xhr.send(`side=${selectedSide}&bet=${bet}`);
 }
 
 function selectSide(side) {

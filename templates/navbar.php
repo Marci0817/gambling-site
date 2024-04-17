@@ -8,7 +8,7 @@
             <div class="profile">
                 <img src="/assets/profile.jpg" alt="avatar">
                 <a href="/profile.php" class="viewProfile">
-                    <p>John Doe</p>
+                    <p><?php echo $_SESSION["username"] ?></p>
                     <p>View profile</p>
                 </a>
             </div>

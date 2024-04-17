@@ -15,8 +15,8 @@ class Auth
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
 
-        if (password_verify($password, $user["password"])) {
-            $_SESSION["username"] = $username;
+        if (password_verify($password, $user['password_hash'])) {
+            $_SESSION['username'] = $username;
             return true;
         }
         return false;
