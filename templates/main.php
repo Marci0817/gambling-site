@@ -9,6 +9,7 @@
     <meta name="author" content="Mihály Marcell, Nyéki Máté Gyula" />
     <title><?= $title ?></title>
     <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/render.js"></script>
     <?php foreach ($styles as $style) : ?>
         <link rel="stylesheet" href="/styles/<?= $style ?>.css">
     <?php endforeach; ?>

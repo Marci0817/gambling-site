@@ -20,8 +20,12 @@ function flipCoin() {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = async function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
             response = JSON.parse(xhr.responseText);
+
+            if (response["result"] == "error") {
+                alert(response["message"]);
+                return;
+            }
 
             if (response.side === "head") {
                 imageContainer.classList.add("heads");
@@ -34,6 +38,9 @@ function flipCoin() {
                     ? "Yeyy, you won " + response.prize
                     : "Noo, you lost"
             );
+            refreshBalance();
+            selectSide("");
+            document.getElementById("bet").value = "";
         }
     };
     xhr.send(`side=${selectedSide}&bet=${bet}`);
@@ -45,9 +52,12 @@ function selectSide(side) {
     if (side === "head") {
         tail.classList.remove("selected");
         head.classList.add("selected");
-    } else {
+    } else if (side === "tail") {
         head.classList.remove("selected");
         tail.classList.add("selected");
+    } else {
+        head.classList.remove("selected");
+        tail.classList.remove("selected");
     }
     selectedSide = side;
 }

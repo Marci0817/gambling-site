@@ -9,3 +9,7 @@ if (isset($_POST['side']) && $_POST['bet']) {
 
     echo $side;
 }
+
+if (isset($_POST["getBalance"])) {
+    echo json_encode(["balance" => UserRepo::getPlayerBalance()]);
+}

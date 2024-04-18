@@ -5,6 +5,10 @@ class CoinFlip
 {
     public static function flipCoin($selectedSide, $bet)
     {
+        if ($bet > UserRepo::getPlayerBalance()) {
+            return json_encode(["result" => "error", "message" => "You don't have enough balance to bet that amount"]);
+        }
+
         $random = rand(0, 10);
         $side = "";
         if ($random % 2 == 0) {

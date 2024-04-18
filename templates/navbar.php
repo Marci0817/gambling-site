@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <nav id="navbar">
     <div id="nav-content">
         <a href="/" class="title font-display">Grandle.</a>
@@ -9,6 +12,7 @@
                 <img src="/assets/profile.jpg" alt="avatar">
                 <a href="/profile.php" class="viewProfile">
                     <p><?php echo $_SESSION["username"] ?></p>
+                    <p id="balance">0</p>
                     <p>View profile</p>
                 </a>
             </div>
