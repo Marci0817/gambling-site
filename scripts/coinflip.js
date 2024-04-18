@@ -12,6 +12,8 @@ function flipCoin() {
         return;
     }
 
+    document.getElementById("coinFlipBtn").disabled = true;
+
     let imageContainer = document.getElementById("coin");
 
     let xhr = new XMLHttpRequest();
@@ -41,6 +43,7 @@ function flipCoin() {
             refreshBalance();
             selectSide("");
             document.getElementById("bet").value = "";
+            document.getElementById("coinFlipBtn").disabled = false;
         }
     };
     xhr.send(`side=${selectedSide}&bet=${bet}`);

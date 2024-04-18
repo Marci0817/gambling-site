@@ -25,7 +25,7 @@ $scripts = [
             <img src="/assets/coins/head.png" alt="Heads" id="head" class="icon" onclick="selectSide('head')" />
             <img src="/assets/coins/tail.png" alt="Tails" id="tail" class="icon" onclick="selectSide('tail')" />
         </div>
-        <button onclick="flipCoin()">Flip the coin</button>
+        <button id="coinFlipBtn" onclick="flipCoin()">Flip the coin</button>
     </div>
 </div>
 <?php
