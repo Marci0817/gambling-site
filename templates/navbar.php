@@ -7,6 +7,7 @@ if (!isset($_SESSION["username"]) && $_SERVER["REQUEST_URI"] !== "/index.php" &&
 
 if (isset($_POST['logout'])) {
     session_destroy();
+    header('Location: /');
     //Auth::logout();
 }
 ?>

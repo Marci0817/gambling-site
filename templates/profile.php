@@ -22,11 +22,11 @@ $scripts = [];
 
         <div>
             <h2>Change your password</h2>
-            <form id="changePassword">
-                <input type="password" placeholder="Old password" />
-                <input type="password" placeholder="New password" />
-                <input type="password" placeholder="New password again" />
-                <button>Change password</button>
+            <form id="changePassword" method="POST" action="">
+                <input type="password" placeholder="Old password" id="oldPassword" name="oldPassword" />
+                <input type="password" placeholder="New password" id="newPassword" name="newPassword" />
+                <input type="password" placeholder="New password again" id="newPassword2" name="newPassword3" />
+                <input type="submit" value="password" />
             </form>
         </div>
     </div>
