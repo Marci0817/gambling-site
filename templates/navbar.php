@@ -30,7 +30,7 @@ if (isset($_POST['logout'])) {
                     </a>
                 </div>
             <?php } else { ?>
-                <a href="/auth.php">Login/register</a>
+                <a class="btn" href="/auth.php">Get started.</a>
             <?php } ?>
         </div>
     </div>

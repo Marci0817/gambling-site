@@ -63,6 +63,10 @@ body {
     font-weight: 600;
 }
 
+#navbar .right > a.btn {
+    color: #000;
+}
+
 #navbar .right > a:hover {
     text-decoration: underline;
 }
