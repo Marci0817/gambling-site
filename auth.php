@@ -1,6 +1,6 @@
 <?php
-include("templates/auth.php");
-require("./utils/Auth.php");
+require_once("templates/auth.php");
+require_once("./utils/Auth.php");
 
 // Login
 if (isset($_POST["login"])) {

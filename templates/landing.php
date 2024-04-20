@@ -12,7 +12,7 @@ $scripts = [
 ?>
 
 <?php ob_start(); ?>
-<?php include("./templates/navbar.php"); ?>
+<?php require_once("./templates/navbar.php"); ?>
 <div id="tagline">
     <h1 class="font-display">
         The most <b>sophisticated</b><br />
@@ -46,5 +46,5 @@ $scripts = [
 </script>
 <?php
 $slot = ob_get_clean();
-include("templates/main.php");
+require_once("templates/main.php");
 ?>

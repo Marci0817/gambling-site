@@ -1,2 +1,2 @@
 <?php
-include("templates/deposit.php");
+require_once("templates/deposit.php");

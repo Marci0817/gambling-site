@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/Auth.php");
 
 if (!isset($_SESSION["username"]) && $_SERVER["REQUEST_URI"] !== "/index.php" && $_SERVER["REQUEST_URI"] !== "/") {
     header("Location: /auth.php");
@@ -30,7 +30,7 @@ if (isset($_POST['logout'])) {
                     </a>
                 </div>
             <?php } else { ?>
-                <a class="btn" href="/auth.php">Get started.</a>
+                <a href="/auth.php">Get started.</a>
             <?php } ?>
         </div>
     </div>

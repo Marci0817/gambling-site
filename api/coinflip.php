@@ -1,5 +1,5 @@
 <?php
-include("../utils/CoinflipGame.php");
+require_once("../utils/CoinflipGame.php");
 
 if (isset($_POST['side']) && $_POST['bet']) {
     $selectedSide = $_POST['side'];

@@ -1,2 +1,2 @@
 <?php
-include("templates/coinflip.php");
+require_once("templates/coinflip.php");

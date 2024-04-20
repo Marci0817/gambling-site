@@ -1,2 +1,2 @@
 <?php
-include("templates/blackjack.php");
+require_once("templates/blackjack.php");

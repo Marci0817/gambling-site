@@ -41,5 +41,5 @@ $scripts = [
 </div>
 <?php
 $slot = ob_get_clean();
-include("templates/main.php");
+require_once("templates/main.php");
 ?>

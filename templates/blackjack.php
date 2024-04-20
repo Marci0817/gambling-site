@@ -12,7 +12,7 @@ $scripts = [
 ?>
 
 <?php ob_start(); ?>
-<?php include("./templates/navbar.php"); ?>
+<?php require_once("./templates/navbar.php"); ?>
 <div id="settings">
     <input type="checkbox" name="soundOnOff" id="soundOnOff" checked />
     <label for="soundOnOff">Sounds on</label>
@@ -79,5 +79,5 @@ $scripts = [
 </script>
 <?php
 $slot = ob_get_clean();
-include("templates/main.php");
+require_once("templates/main.php");
 ?>

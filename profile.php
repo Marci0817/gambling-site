@@ -1,6 +1,6 @@
 <?php
-include("templates/profile.php");
-include './utils/Auth.php';
+require_once("templates/profile.php");
+require_once("./utils/Auth.php");
 
 if (isset($_POST['oldPassword']) && isset($_POST['newPassword']) && isset($_POST['newPassword2'])) {
     $oldPassword = $_POST['oldPassword'];

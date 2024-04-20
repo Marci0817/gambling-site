@@ -10,7 +10,7 @@ $scripts = [
 ];
 ?>
 <?php ob_start(); ?>
-<?php include("./templates/navbar.php"); ?>
+<?php require_once("./templates/navbar.php"); ?>
 <div id="coinFlip">
     <div id="coin">
         <div class="side-a"></div>
@@ -30,5 +30,5 @@ $scripts = [
 </div>
 <?php
 $slot = ob_get_clean();
-include("templates/main.php");
+require_once("templates/main.php");
 ?>

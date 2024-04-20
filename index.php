@@ -1,3 +1,3 @@
 <?php
-include("templates/landing.php");
+require_once("templates/landing.php");
 ?>

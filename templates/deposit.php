@@ -12,7 +12,7 @@ $scripts = [
 ?>
 
 <?php ob_start(); ?>
-<?php include("./templates/navbar.php"); ?>
+<?php require_once("./templates/navbar.php"); ?>
 <div id="container">
     <div id="bubble-template" class="bubble">
         <p class="value"></p>
@@ -21,5 +21,5 @@ $scripts = [
 </div>
 <?php
 $slot = ob_get_clean();
-include("main.php");
+require_once("main.php");
 ?>
