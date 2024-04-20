@@ -10,7 +10,7 @@ function refreshBalance() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             response = JSON.parse(xhr.responseText);
             let balance = response["balance"];
-            document.getElementById("balance").innerText = balance;
+            document.getElementById("balance").innerText = balance + " $";
         }
     };
     xhr.send(`getBalance`);

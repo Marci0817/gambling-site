@@ -124,6 +124,8 @@ body {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    padding: 0;
+    margin: 0;
 }
 
 input {
@@ -154,4 +156,18 @@ input:focus {
 .back {
     background-image: url("/assets/cards/cardback.webp");
     background-size: 100% 100%;
+}
+
+#username{
+    font-weight: bold;
+}
+
+#logout{
+    color:white;
+}
+
+#logout:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color:red;
 }

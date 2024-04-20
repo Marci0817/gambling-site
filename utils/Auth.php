@@ -38,8 +38,9 @@ class Auth
             return false;
         }
 
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $stmt = $conn->prepare("INSERT INTO users (username, password_hash) VALUES (?, ?)");
-        $stmt->bind_param("ss", $username, password_hash($password, PASSWORD_DEFAULT));
+        $stmt->bind_param("ss", $username, $hashed_password);
         $stmt->execute();
 
         $_SESSION['username'] = $username;
