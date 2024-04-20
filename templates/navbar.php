@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (isset($_POST['logout'])) {
+    session_destroy();
+    //Auth::logout();
+}
 ?>
 <nav id="navbar">
     <div id="nav-content">
@@ -13,7 +18,9 @@ session_start();
                 <a href="/profile.php" class="viewProfile">
                     <p><?php echo $_SESSION["username"] ?></p>
                     <p id="balance">0</p>
-                    <p>View profile</p>
+                    <form method="POST" action="">
+                        <input type="submit" value="logout" name="logout" class="reset-btn" />
+                    </form>
                 </a>
             </div>
         </div>

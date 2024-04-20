@@ -13,20 +13,25 @@ Telepítési lehetőségek:
 
 2. Apache elindítása
 
+3. SQL file betöltése ( /sql/init.sql)
+
 -- 2. lehetőség --
 
 1. `D:\XAMPP\apache\conf\extra\httpd-vhosts.conf` fájl módosítása
 
 2. `<elérési utvonal>` felülírása ( pl: C:\Users\User\Desktop\Websites\gambling-site )
-   `<VirtualHost *:80>
-  DocumentRoot "<elérési utvonal>" 
-  ServerName localhost
-  <Directory />
-      Require all granted
-  </Directory>
-</VirtualHost>`
+
+`<VirtualHost *:80>
+    DocumentRoot "<elérési utvonal>" 
+    ServerName localhost
+    <Directory />
+        Require all granted
+    </Directory>
+  </VirtualHost>`
 
 3. Apache elindítása
+
+4. SQL file betöltése ( /sql/init.sql)
 
 ## Projekt felépítése
 

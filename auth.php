@@ -11,3 +11,12 @@ if (isset($_POST["login"])) {
         echo "<script>alert('Invalid credentials')</script>";
     }
 }
+
+// Register
+if (isset($_POST["register"])) {
+    if (Auth::register($_POST["username"], $_POST["password"], $_POST["password2"])) {
+        echo "<script>alert('Registered successfully')</script>";
+    } else {
+        echo "<script>alert('Failed to register')</script>";
+    }
+}
