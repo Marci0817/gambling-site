@@ -4,7 +4,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/Auth.php");
 
 class UserRepo
 {
-    public static function mul(string $a, string $b): string {
+    public static function mul(string $a, string $b): string
+    {
         if (ConnectionHandler::getConnection() == null) {
             return ["result" => false, "error" => "Database connection failed"];
         }
@@ -62,7 +63,21 @@ class UserRepo
         $conn = ConnectionHandler::getConnection();
         $stmt = $conn->prepare("UPDATE USERS SET balance = balance - ? WHERE username = ? AND balance >= ?");
         $stmt->bind_param("sss", $amount, $user, $amount);
-        
+
         return $stmt->execute() && $stmt->affected_rows == 1;
+    }
+
+    public static function getLeaderboard()
+    {
+        if (ConnectionHandler::getConnection() == null) {
+            return ["result" => false, "error" => "Database connection failed"];
+        }
+
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("SELECT username, balance FROM users ORDER BY balance DESC LIMIT 10");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }

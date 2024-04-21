@@ -47,6 +47,7 @@ Telepítési lehetőségek:
 -   /blackjack.php - Blackjack /coinflip.php - Coinflip
 -   /profile.php - Profil oldal
 -   /deposit.php - Befizetős minigame
+-   /admin.php - Adminoknak statisztikák
 
 **Jelenlegi állapot**
 https://trello.com/b/XbhGhbGz

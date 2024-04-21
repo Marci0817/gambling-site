@@ -81,4 +81,32 @@ class HistoryRepo
 
         return $result->fetch_assoc()["winrate"];
     }
+
+    public static function getGamesPlayed()
+    {
+        if (ConnectionHandler::getConnection() == null) {
+            return ["result" => false, "error" => "Database connection failed"];
+        }
+
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("SELECT game, count(*) AS games_played FROM history GROUP BY game");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public static function getCasinoStats()
+    {
+        if (ConnectionHandler::getConnection() == null) {
+            return ["result" => false, "error" => "Database connection failed"];
+        }
+
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("SELECT userInfo.allUser ,balanceInfo.allBalance, totalProfit.casinoProfit, totalDepo.allDeposit FROM (SELECT COUNT(*) as allUser FROM users) userInfo, (SELECT SUM(balance) as allBalance FROM users) balanceInfo, (SELECT SUM(amount) as casinoProfit FROM history WHERE LOWER(game) != 'deposit') totalProfit, (SELECT SUM(amount) as allDeposit FROM history WHERE LOWER(game) = 'deposit') totalDepo");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
