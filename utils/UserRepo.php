@@ -10,12 +10,12 @@ class UserRepo
         }
 
         $conn = ConnectionHandler::getConnection();
-        $stmt = $conn->prepare("SELECT CAST(? AS DECIMAL(10,2)) * CAST(? AS DECIMAL(10,2))");
+        $stmt = $conn->prepare("SELECT CAST(? AS DECIMAL(10,2)) * CAST(? AS DECIMAL(10,2)) AS res");
         $stmt->bind_param("ss", $a, $b);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_column();
+        return $result->fetch_assoc()["res"];
     }
 
     public static function addUserBalance($balance)
