@@ -16,20 +16,21 @@ window.requestAnimationFrame(frame);
 
 let bubbles = [];
 
+function removeBubble(bubble) {
+    bubble.el.remove();
+    bubbles = bubbles.filter((b) => b !== bubble);
+}
+
 function tick(delta) {
     if (bubbles.length < 5) {
-        let value = Math.floor(Math.random() * 3000);
+        const value = Math.floor(Math.random() * 3000);
+        const szamnev = numberToSzamnev(value);
 
-        let el = document.getElementById("bubble-template").cloneNode(true);
-        
+        const el = document.getElementById("bubble-template").cloneNode(true);
+
         const valueEl = el.getElementsByClassName("value")[0];
         valueEl.innerText = "$" + value;
         el.removeAttribute("id");
-        el.onclick = () => {
-            el.classList.add("expanded");
-            el.getElementsByTagName("input")[0].focus();
-            valueEl.innerText = numberToSzamnev(value);
-        };
 
         container.appendChild(el);
 
@@ -41,13 +42,42 @@ function tick(delta) {
             container.clientWidth / 2 - x
         );
 
-        bubbles.push({
+        const bubble = {
             value,
             angle,
             x,
             y,
             el,
-        });
+        };
+
+        bubbles.push(bubble);
+
+        el.onclick = () => {
+            el.classList.add("expanded");
+
+            const input = el.getElementsByTagName("input")[0];
+            input.addEventListener("input", async () => {
+                if (!szamnev.startsWith(input.value)) {
+                    removeBubble(bubble);
+                    return;
+                }
+
+                if (input.value !== szamnev) {
+                    return;
+                }
+
+                removeBubble(bubble);
+                await fetch("/api/deposit.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ amount: value }),
+                });
+                refreshBalance();
+            });
+
+            input.focus();
+            valueEl.innerText = szamnev;
+        };
     }
 
     for (let bubble of bubbles) {
@@ -64,8 +94,7 @@ function tick(delta) {
             bubble.x > container.clientWidth + 48 ||
             bubble.y > container.clientHeight + 48
         ) {
-            bubble.el.remove();
-            bubbles = bubbles.filter((b) => b !== bubble);
+            removeBubble(bubble);
         }
     }
 }
