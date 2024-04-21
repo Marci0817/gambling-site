@@ -25,11 +25,18 @@ async function startNewGame() {
         body: JSON.stringify({ bet: playerBet }),
     });
     const game = await res.json();
+
+    document.getElementById("dealer_img").classList.add("atTable");
+    await sleep(500);
+    playSitSound();
+    await sleep(500);
+
     refreshBalance();
     await loadGame(game, true);
 }
 
 async function loadGame(game, withFeedback) {
+    document.getElementById("dealer_img").classList.add("atTable");
     let startButton = document.getElementById("startButton");
     startButton.classList.add("hidden");
 
@@ -115,6 +122,13 @@ function setPlayerBetCount(value) {
 function newCardSound() {
     if (getSoundValue()) {
         let audio = new Audio("/assets/sounds/newcardintable.mp3");
+        audio.play();
+    }
+}
+
+function playSitSound() {
+    if (getSoundValue()) {
+        let audio = new Audio("/assets/sounds/sit.mp3");
         audio.play();
     }
 }

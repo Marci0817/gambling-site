@@ -14,25 +14,28 @@ $scripts = [
 <?php ob_start(); ?>
 <?php require_once("./templates/navbar.php"); ?>
 <div id="container">
-    <div id="settings">
+    <div id="sidebar">
         <input type="checkbox" name="soundOnOff" id="soundOnOff" checked />
         <label for="soundOnOff">Sounds on</label>
+        <p>Bet: $<span id="playerChips">0</span></p>
     </div>
+    <div id="dealer_img"></div>
     <div id="table">
-        <div id="dealerBoard">
-            <div id="dealerCardBoard">
+        <div class="gameArea">
+            <div class="table"></div>
+            <div id="cards">
+                <div id="dealerBoardContainer">
+                    <div id="dealerCardBoard" class="hand">
+                    </div>
+                    <div id="dealerCardCount" class="cardCount">0</div>
+                </div>
 
-            </div>
-            <div id="dealerCardCount">0</div>
-        </div>
+                <div id="playerBoardContainer">
+                    <div id="playerCardBoard" class="hand">
 
-        <div id="playerBoard">
-            <div id="playerCardCount">0</div>
-            <div id="playerCardBoard">
-
-            </div>
-            <div>
-                <p id="playerChips">0</p>
+                    </div>
+                    <div id="playerCardCount" class="cardCount">0</div>
+                </div>
             </div>
         </div>
     </div>
