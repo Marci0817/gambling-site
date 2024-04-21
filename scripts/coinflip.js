@@ -44,6 +44,8 @@ function flipCoin() {
             selectSide("");
             document.getElementById("bet").value = "";
             document.getElementById("coinFlipBtn").disabled = false;
+            imageContainer.classList.remove("heads");
+            imageContainer.classList.remove("tails");
         }
     };
     xhr.send(`side=${selectedSide}&bet=${bet}`);
