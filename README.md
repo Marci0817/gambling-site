@@ -1,9 +1,14 @@
 # Gambling site _( Web tervezés gyakorlat )_
 
+## Note
+
+Admin felhasználónév: admin
+Jelszó: admin
+
 ## Projekt telepítése
 
 Követelmények:
--XAMPP
+-XAMPP ( !!!!PHP version >7.4 )
 
 Telepítési lehetőségek:
 
