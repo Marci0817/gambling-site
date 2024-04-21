@@ -32,7 +32,7 @@ async function startNewGame() {
 async function loadGame(game, withFeedback) {
     let startButton = document.getElementById("startButton");
     startButton.classList.add("hidden");
-    
+
     document.getElementById("bottomHud").classList.add("hidden");
 
     await showGameState(game, withFeedback);
@@ -60,11 +60,17 @@ async function showGameState(game, withFeedback) {
     const playerCardBoard = document.getElementById("playerCardBoard");
     const dealerCardBoard = document.getElementById("dealerCardBoard");
 
+    const playerHandValue = document.getElementById("playerCardCount");
+    const dealerHandValue = document.getElementById("dealerCardCount");
+
     playerBet = game.bet;
     setPlayerBetCount(playerBet);
 
     await revealCards(playerCardBoard, game.playerHand, withFeedback);
+    playerHandValue.innerText = game.playerHandValue;
+
     await revealCards(dealerCardBoard, game.dealerHand, withFeedback);
+    dealerHandValue.innerText = game.dealerHandValue;
 
     const endScreen = document.getElementById("endScreen");
     const endTitle = document.getElementById("endTitle");

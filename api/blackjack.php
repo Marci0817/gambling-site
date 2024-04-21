@@ -68,6 +68,8 @@ reply([
     "bet" => $game->getBet(),
     "dealerHand" => $game->getDealerHand(),
     "playerHand" => $game->getPlayerHand(),
+    "playerHandValue" => $game->getPlayerHandValue(),
+    "dealerHandValue" => $game->getDealerHandValue(),
     "state" => $state,
 ]);
 

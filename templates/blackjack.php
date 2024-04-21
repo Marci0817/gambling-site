@@ -23,10 +23,11 @@ $scripts = [
             <div id="dealerCardBoard">
 
             </div>
+            <div id="dealerCardCount">0</div>
         </div>
 
         <div id="playerBoard">
-
+            <div id="playerCardCount">0</div>
             <div id="playerCardBoard">
 
             </div>

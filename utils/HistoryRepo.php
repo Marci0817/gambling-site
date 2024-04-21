@@ -103,7 +103,7 @@ class HistoryRepo
         }
 
         $conn = ConnectionHandler::getConnection();
-        $stmt = $conn->prepare("SELECT userInfo.allUser ,balanceInfo.allBalance, totalProfit.casinoProfit, totalDepo.allDeposit FROM (SELECT COUNT(*) as allUser FROM users) userInfo, (SELECT SUM(balance) as allBalance FROM users) balanceInfo, (SELECT SUM(amount) as casinoProfit FROM history WHERE LOWER(game) != 'deposit') totalProfit, (SELECT SUM(amount) as allDeposit FROM history WHERE LOWER(game) = 'deposit') totalDepo");
+        $stmt = $conn->prepare("SELECT userInfo.allUser ,balanceInfo.allBalance, totalProfit.casinoProfit, totalDepo.allDeposit FROM (SELECT COUNT(*) as allUser FROM users) userInfo, (SELECT SUM(balance) as allBalance FROM users) balanceInfo, (SELECT SUM(amount)*-1 as casinoProfit FROM history WHERE LOWER(game) != 'deposit') totalProfit, (SELECT SUM(amount) as allDeposit FROM history WHERE LOWER(game) = 'deposit') totalDepo");
         $stmt->execute();
         $result = $stmt->get_result();
 

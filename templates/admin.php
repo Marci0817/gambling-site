@@ -39,9 +39,9 @@ $scripts = [];
                 </tr>
                 <tr>
                     <td><?php echo $casinoStats["allUser"] ?></td>
-                    <td><?php echo $casinoStats["allBalance"] ?></td>
-                    <td><?php echo $casinoStats["casinoProfit"] ?></td>
-                    <td><?php echo $casinoStats["allDeposit"] ?></td>
+                    <td><?php echo "$ " . $casinoStats["allBalance"] ?></td>
+                    <td><?php echo "$ " . $casinoStats["casinoProfit"] ?></td>
+                    <td><?php echo "$ " . $casinoStats["allDeposit"] ?></td>
                 </tr>
             </table>
         </div>
