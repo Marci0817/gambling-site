@@ -17,3 +17,16 @@ CREATE TABLE `users` (
 
 INSERT INTO users (username, password_hash, admin)
 VALUES ('admin', '$2y$10$RrimLkl.j7ydKiqccdI3lelD3UfsZAiW3CVxQ9Qu3ap4gLcAsByCi', 1);
+
+CREATE TABLE `history` (
+	`id` INTEGER UNSIGNED auto_increment NOT NULL,
+	`username` varchar(100) NOT NULL,
+	`game` varchar(100) NOT NULL,
+	`amount` decimal(10,2) NOT NULL,
+	`timestamp` TIMESTAMP DEFAULT current_timestamp() NOT NULL,
+	PRIMARY KEY (`id`),
+	CONSTRAINT history_users_FK FOREIGN KEY (`username`) REFERENCES users(`username`) ON DELETE CASCADE
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_hungarian_ci;
