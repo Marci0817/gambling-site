@@ -3,9 +3,9 @@ require_once(__DIR__ . '/UserRepo.php');
 
 class CoinFlip
 {
-    public static function flipCoin($selectedSide, $bet)
+    public static function flipCoin($selectedSide, string $bet)
     {
-        if ($bet > UserRepo::getPlayerBalance()) {
+        if (!UserRepo::subtractBalance($bet)) {
             return json_encode(["result" => "error", "message" => "You don't have enough balance to bet that amount"]);
         }
 
@@ -18,11 +18,11 @@ class CoinFlip
         }
 
         if ($selectedSide == $side) {
-            UserRepo::addUserBalane($bet);
-            return json_encode(["result" => "win", "prize" => $bet * 2, "side" => $side]);
+            $prize = UserRepo::mul($bet, "2");
+            UserRepo::addUserBalance($prize);
+            return json_encode(["result" => "win", "prize" => $prize, "side" => $side]);
         }
 
-        UserRepo::addUserBalane($bet * -1);
         return json_encode(["result" => "lose", "prize" => 0, "side" => $side]);
     }
 }

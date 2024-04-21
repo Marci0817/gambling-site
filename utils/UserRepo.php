@@ -1,12 +1,24 @@
 <?php
-
 require_once(__DIR__ . '/ConnectionHandler.php');
-session_start();
+require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/Auth.php");
 
 class UserRepo
 {
+    public static function mul(string $a, string $b): string {
+        if (ConnectionHandler::getConnection() == null) {
+            return ["result" => false, "error" => "Database connection failed"];
+        }
 
-    public static function addUserBalane($balance)
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("SELECT CAST(? AS DECIMAL(10,2)) * CAST(? AS DECIMAL(10,2))");
+        $stmt->bind_param("ss", $a, $b);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_column();
+    }
+
+    public static function addUserBalance($balance)
     {
         if (ConnectionHandler::getConnection() == null) {
             return ["result" => false, "error" => "Database connection failed"];
@@ -24,7 +36,7 @@ class UserRepo
         return ["result" => false];
     }
 
-    public static function getPlayerBalance(): float
+    public static function getPlayerBalance(): string
     {
         if (ConnectionHandler::getConnection() == null) {
             return ["result" => false, "error" => "Database connection failed"];
@@ -37,5 +49,20 @@ class UserRepo
         $result = $stmt->get_result();
 
         return $result->fetch_assoc()['balance'];
+    }
+
+    public static function subtractBalance(string $amount): bool
+    {
+        $user = $_SESSION["username"];
+
+        if (ConnectionHandler::getConnection() == null) {
+            die("Database connection failed");
+        }
+
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("UPDATE USERS SET balance = balance - ? WHERE username = ? AND balance >= ?");
+        $stmt->bind_param("sss", $amount, $user, $amount);
+        
+        return $stmt->execute() && $stmt->affected_rows == 1;
     }
 }
