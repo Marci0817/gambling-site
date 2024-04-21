@@ -60,6 +60,9 @@ async function showGameState(game, withFeedback) {
     const playerCardBoard = document.getElementById("playerCardBoard");
     const dealerCardBoard = document.getElementById("dealerCardBoard");
 
+    playerBet = game.bet;
+    setPlayerBetCount(playerBet);
+
     await revealCards(playerCardBoard, game.playerHand, withFeedback);
     await revealCards(dealerCardBoard, game.dealerHand, withFeedback);
 
