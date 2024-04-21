@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . '/UserRepo.php');
+require_once(__DIR__ . '/HistoryRepo.php');
 
 class CoinFlip
 {
@@ -20,9 +21,11 @@ class CoinFlip
         if ($selectedSide == $side) {
             $prize = UserRepo::mul($bet, "2");
             UserRepo::addUserBalance($prize);
+            HistoryRepo::addHistory("Coinflip", $bet);
             return json_encode(["result" => "win", "prize" => $prize, "side" => $side]);
         }
 
+        HistoryRepo::addHistory("Coinflip", "-" . $bet);
         return json_encode(["result" => "lose", "prize" => 0, "side" => $side]);
     }
 }

@@ -4,7 +4,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/Auth.php");
 
 class HistoryRepo
 {
-    public static function addHistory($game, $result, $amount)
+    public static function addHistory($game, $amount)
     {
         if (ConnectionHandler::getConnection() == null) {
             return ["result" => false, "error" => "Database connection failed"];
@@ -29,11 +29,56 @@ class HistoryRepo
         }
 
         $conn = ConnectionHandler::getConnection();
-        $stmt = $conn->prepare("SELECT * FROM history WHERE username = ?");
+        $stmt = $conn->prepare("SELECT * FROM history WHERE username = ? ORDER BY timestamp DESC LIMIT 50");
         $stmt->bind_param("s", $_SESSION['username']);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public static function getGamePlayed()
+    {
+        if (ConnectionHandler::getConnection() == null) {
+            return ["result" => false, "error" => "Database connection failed"];
+        }
+
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("SELECT COUNT(*) as gamePlayed FROM history WHERE username = ?");
+        $stmt->bind_param("s", $_SESSION['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc()["gamePlayed"];
+    }
+
+    public static function getProfit()
+    {
+        if (ConnectionHandler::getConnection() == null) {
+            return ["result" => false, "error" => "Database connection failed"];
+        }
+
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("SELECT SUM(amount) as profit FROM history WHERE username = ? AND LOWER(game) != 'deposit'");
+        $stmt->bind_param("s", $_SESSION['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return  $result->fetch_assoc()["profit"];
+    }
+
+    public static function getWinrate()
+    {
+        if (ConnectionHandler::getConnection() == null) {
+            return ["result" => false, "error" => "Database connection failed"];
+        }
+
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("SELECT ROUND((win.count / total.count) * 100) AS winrate FROM (select count(*) as count from history where username = ? AND amount > 0) win, (select count(*) as count from history where username = ?) total");
+        $stmt->bind_param("ss", $_SESSION['username'], $_SESSION['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc()["winrate"];
     }
 }

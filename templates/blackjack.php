@@ -26,9 +26,7 @@ $scripts = [
         </div>
 
         <div id="playerBoard">
-            <div id="playerCardHud">
-                <p id="playerCardCount">11</p>
-            </div>
+
             <div id="playerCardBoard">
 
             </div>

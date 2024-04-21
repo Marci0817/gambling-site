@@ -116,6 +116,10 @@ th{
     color: rgb(0, 223, 0);
 }
 
+.negative{
+    color: rgb(255, 10, 10);
+}
+
 
 @media screen and (max-width: 768px) {
     #container{

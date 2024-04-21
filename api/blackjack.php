@@ -2,6 +2,8 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/Auth.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/UserRepo.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/BlackjackGame.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/utils/HistoryRepo.php");
+
 
 $req = json_decode(file_get_contents("php://input"), true);
 
@@ -48,12 +50,15 @@ if ($game->isOver()) {
 
     if ($playerBust || ($dealerHandHigher && !$dealerBust)) {
         $state = "LOSE";
+        HistoryRepo::addHistory("Blackjack", "-" . $game->getBet());
     } elseif ($draw) {
         $state = "DRAW";
         UserRepo::addUserBalance($game->getBet());
+        HistoryRepo::addHistory("Blackjack", 0);
     } else {
         $state = "WIN";
         UserRepo::addUserBalance(UserRepo::mul($game->getBet(), "2"));
+        HistoryRepo::addHistory("Blackjack", $game->getBet());
     }
 
     unset($_SESSION["currentBlackjackGame"]);

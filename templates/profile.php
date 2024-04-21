@@ -42,9 +42,9 @@ $scripts = [];
                     <th>Games played</th>
                 </tr>
                 <tr>
-                    <td class="positive">+265$</td>
-                    <td>25%</td>
-                    <td>999+</td>
+                    <td class=<?php echo $profit > 0 ? "positive" : "negative" ?>><?php echo "$ " . $profit  ?></td>
+                    <td><?php echo $winRate . " %" ?></td>
+                    <td><?php echo $gamePlayed ?></td>
                 </tr>
             </table>
 
@@ -59,26 +59,15 @@ $scripts = [];
         <tr>
             <th>Date</th>
             <th>Game</th>
-            <th>Result</th>
             <th>Amount</th>
         </tr>
-        <tr>
-            <td>2021.01.01</td>
-            <td>Coinflip</td>
-            <td>Win</td>
-            <td>100</td>
-        </tr>
-        <tr>
-            <td>2021.01.01</td>
-            <td>Blackjack</td>
-            <td>Lose</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <td>2021.01.01</td>
-            <td>Coinflip</td>
-            <td>Win</td>
-            <td>1 544</td>
+        <?php foreach ($allHistory as $history) { ?>
+            <tr>
+                <td><?php echo $history["timestamp"] ?></td>
+                <td><?php echo $history["game"] ?></td>
+                <td><?php echo $history["amount"] ?></td>
+            </tr>
+        <?php } ?>
     </table>
 </div>
 <script>

@@ -1,6 +1,14 @@
 <?php
+require_once("./utils/HistoryRepo.php");
+
+$allHistory = HistoryRepo::getHistory();
+$gamePlayed = HistoryRepo::getGamePlayed();
+$profit = HistoryRepo::getProfit();
+$winRate = HistoryRepo::getWinRate();
+
 require_once("templates/profile.php");
 require_once("./utils/Auth.php");
+
 
 if (isset($_POST['oldPassword']) && isset($_POST['newPassword']) && isset($_POST['newPassword2'])) {
     $oldPassword = $_POST['oldPassword'];
