@@ -53,9 +53,9 @@ class Auth
             return ["result" => false, "text" => "Passwords do not match"];
         }
 
-        if (strlen($newPassword) < 8) {
+        /*if (strlen($newPassword) < 8) {
             return ["result" => false, "text" => "Password must be at least 8 characters long"];
-        }
+        }*/
 
         $conn = ConnectionHandler::getConnection();
         $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
