@@ -17,6 +17,7 @@ class Auth
 
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['username'] = $username;
+            $_SESSION['adminPrivileges'] = $user['admin'];
             return true;
         }
         return false;
@@ -78,5 +79,16 @@ class Auth
     {
         session_destroy();
         header('Location: /');
+    }
+
+    public static function isUserAdmin(): bool
+    {
+        $conn = ConnectionHandler::getConnection();
+        $stmt = $conn->prepare("SELECT admin FROM users WHERE username = ?");
+        $stmt->bind_param("s", $_SESSION['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc()["admin"];
     }
 }

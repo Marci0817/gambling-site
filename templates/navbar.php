@@ -18,6 +18,9 @@ if (isset($_POST['logout'])) {
             <?php if (isset($_SESSION["username"])) { ?>
                 <a href="/blackjack.php">Blackjack</a>
                 <a href="/coinflip.php">Coin-flip</a>
+                <?php if (Auth::isUserAdmin()) { ?>
+                    <a href="/admin.php">Admin</a>
+                <?php } ?>
                 <a href="/deposit.php" class="deposit btn">Deposit</a>
                 <div class="profile">
                     <img src="/assets/profile.jpg" alt="avatar">
