@@ -25,8 +25,8 @@ $scripts = [];
             <form id="changePassword" method="POST" action="">
                 <input type="password" placeholder="Old password" id="oldPassword" name="oldPassword" />
                 <input type="password" placeholder="New password" id="newPassword" name="newPassword" />
-                <input type="password" placeholder="New password again" id="newPassword2" name="newPassword3" />
-                <input type="submit" value="password" />
+                <input type="password" placeholder="New password again" id="newPassword2" name="newPassword2" />
+                <input type="submit" name="changePasswordSubmit" value="Change password" />
             </form>
         </div>
     </div>
@@ -50,8 +50,6 @@ $scripts = [];
 
         </div>
     </div>
-
-
 </div>
 <div id="history">
     <h2>History</h2>
