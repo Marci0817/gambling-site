@@ -4,17 +4,14 @@ class BlackjackGame
 {
     private bool $isOver = false;
 
-    private string $username;
-
     private string $bet;
 
     private array $deck = [];
     private array $dealerHand = [];
     private array $playerHand = [];
 
-    public function __construct(string $username, string $bet)
+    public function __construct(string $bet)
     {
-        $this->username = $username;
         $this->bet = $bet;
 
         $suits = ["c", "d", "h", "s"];
@@ -28,17 +25,22 @@ class BlackjackGame
         shuffle($this->deck);
 
         $this->addPlayerCard();
+        $this->addPlayerCard();
         $this->addDealerCard();
     }
 
 
     public function hit(): void
     {
-        if ($this->isOver || $this->getPlayerHandValue() >= 21) {
+        if ($this->isOver) {
             return;
         }
 
         $this->addPlayerCard();
+
+        if ($this->getPlayerHandValue() >= 21) {
+            $this->stand();
+        }
     }
 
     public function stand(): void
@@ -77,6 +79,11 @@ class BlackjackGame
     public function getDealerHand(): array
     {
         return $this->dealerHand;
+    }
+
+    public function getBet(): string
+    {
+        return $this->bet;
     }
 
     private function addPlayerCard(): void

@@ -2,60 +2,93 @@ const DELAY_BETWEEN_CARDS = 500;
 
 let playerBet = 0; //Player current bet
 
-let dealerCards = [];
-let playerCards = [];
-
 let isCoinsHudVisible = true;
 
+checkForOngoing();
+
+async function checkForOngoing() {
+    const res = await fetch("/api/blackjack.php");
+    const game = await res.json();
+
+    if (game.state !== "NONE") {
+        loadGame(game, false);
+    } else {
+        let startButton = document.getElementById("startButton");
+        startButton.classList.remove("hidden");
+    }
+}
+
 async function startNewGame() {
+    const res = await fetch("/api/blackjack.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bet: playerBet }),
+    });
+    const game = await res.json();
+    refreshBalance();
+    await loadGame(game, true);
+}
+
+async function loadGame(game, withFeedback) {
     let startButton = document.getElementById("startButton");
     startButton.classList.add("hidden");
+    
+    document.getElementById("bottomHud").classList.add("hidden");
 
-    //Make request to server to start new game and get the cards
-    /* ...later.. */
-    addPlayerCard([generateRandomCard(), generateRandomCard()]);
-    await sleep(2 * DELAY_BETWEEN_CARDS); // 2* DELAY_BETWEEN_CARDS, 2 because we have 2 cards
-    addDealerCard([generateRandomCard()]);
+    await showGameState(game, withFeedback);
 
-    //User interaction needed
     let playerInteraction = document.getElementById("playerInteractions");
     playerInteraction.classList.remove("hidden");
     playerInteraction.classList.add("flex");
 }
 
-function playerAction(action) {
+async function playerAction(action) {
     let playerInteraction = document.getElementById("playerInteractions");
     playerInteraction.classList.add("hidden");
-    addDealerCard([generateRandomCard()]);
-    switch (action) {
-        case "hit":
-            //later request
+
+    const res = await fetch("/api/blackjack.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action }),
+    });
+    const game = await res.json();
+
+    await showGameState(game, true);
+}
+
+async function showGameState(game, withFeedback) {
+    const playerCardBoard = document.getElementById("playerCardBoard");
+    const dealerCardBoard = document.getElementById("dealerCardBoard");
+
+    await revealCards(playerCardBoard, game.playerHand, withFeedback);
+    await revealCards(dealerCardBoard, game.dealerHand, withFeedback);
+
+    const endScreen = document.getElementById("endScreen");
+    const endTitle = document.getElementById("endTitle");
+    const endDescription = document.getElementById("endDescription");
+
+    if (game.state !== "ONGOING") {
+        endScreen.classList.add("show");
+    }
+
+    switch (game.state) {
+        case "WIN":
+            endTitle.innerText = "YOU WON!";
+            endTitle.classList.add("win");
+            endDescription.innerText = `$${game.bet} has been credited to your account.`;
             break;
-        case "stand":
-            //later request
+        case "LOSE":
+            endTitle.innerText = "YOU LOST!";
+            endTitle.classList.add("lose");
+            endDescription.innerText = "The dealer has defeated you.";
             break;
-        case "double":
-            //later request
-            break;
-        case "split":
-            //later request
-            break;
-        default:
+        case "DRAW":
+            endTitle.innerText = "DRAW!";
+            endDescription.innerText = "You have gained your credits back.";
             break;
     }
 
-    //for now generate random card
-    addPlayerCard([generateRandomCard()]);
-}
-
-function addPlayerCard(cards) {
-    let playerCardBoard = document.getElementById("playerCardBoard");
-    revealCard(playerCardBoard, cards);
-}
-
-function addDealerCard(cards) {
-    let dealerCardBoard = document.getElementById("dealerCardBoard");
-    revealCard(dealerCardBoard, cards);
+    refreshBalance();
 }
 
 // Helper functions
@@ -83,42 +116,23 @@ async function sleep(interval) {
     });
 }
 
-async function revealCard(whichPlayerCard, cards) {
-    let cardBacksIndex = [];
+async function revealCards(hand, cards, withFeedback) {
+    const totalCount = hand.children.length;
+    const visibleCount = hand.querySelectorAll(".card:not(.back)").length;
 
-    for (let i = 0; i < whichPlayerCard.children.length; i++) {
-        if (whichPlayerCard.children[i].classList.contains("back")) {
-            cardBacksIndex.push(i);
+    for (let i = visibleCount; i < cards.length; i++) {
+        const card = createCardFromString(cards[i]);
+
+        if (i < totalCount) {
+            hand.replaceChild(card, hand.children[i]);
+        } else {
+            hand.appendChild(card);
         }
-    }
 
-    if (cardBacksIndex.length == 1) {
-        whichPlayerCard.children[cardBacksIndex[0]].parentNode.replaceChild(
-            cards[0],
-            whichPlayerCard.children[cardBacksIndex[0]]
-        );
-        newCardSound();
-        await sleep(DELAY_BETWEEN_CARDS);
-        return;
-    }
-
-    if (cardBacksIndex.length == 2) {
-        for (let i = 0; i < cardBacksIndex.length; i++) {
-            if (cards.length === 1 && i === 1) break;
-            whichPlayerCard.children[cardBacksIndex[i]].parentNode.replaceChild(
-                cards[i],
-                whichPlayerCard.children[cardBacksIndex[i]]
-            );
+        if (withFeedback) {
             newCardSound();
             await sleep(DELAY_BETWEEN_CARDS);
         }
-        return;
-    }
-
-    for (let i = 0; i < cards.length; i++) {
-        whichPlayerCard.appendChild(cards[i]);
-        newCardSound();
-        await sleep(DELAY_BETWEEN_CARDS);
     }
 }
 
@@ -157,28 +171,11 @@ function addCredit(credit) {
     setPlayerBetCount(playerBet);
 }
 
-//For testing generate random card
-function generateRandomCard() {
-    let cardNumber = Math.floor(Math.random() * 13) + 2;
-    let cardSuit = Math.floor(Math.random() * 4) + 1;
+function createCardFromString(card) {
+    let suit = card[card.length - 1];
+    let num = parseInt(card.slice(0, -1));
 
-    switch (cardSuit) {
-        case 1:
-            cardSuit = "c";
-            break;
-        case 2:
-            cardSuit = "d";
-            break;
-        case 3:
-            cardSuit = "h";
-            break;
-        case 4:
-            cardSuit = "s";
-            break;
-        default:
-            break;
-    }
-    return createCard(cardNumber, cardSuit);
+    return createCard(num, suit);
 }
 
 function showCoins() {
